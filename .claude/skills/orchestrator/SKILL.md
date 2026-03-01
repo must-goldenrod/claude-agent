@@ -1,11 +1,11 @@
 ---
 name: orchestrator
-description: Run the full multi-agent pipeline for a project. Manages 4 teams (research → debate → synthesis → quality) through file-based orchestration with leader resume pattern.
+description: Run the full multi-agent pipeline for a project. Manages 5 teams (research → debate → synthesis → quality → security) through file-based orchestration with leader resume pattern. Security review runs after implementation phase quality gate.
 ---
 
 # Project Orchestrator
 
-End-to-end multi-agent pipeline that takes a project description and runs it through 4 specialized teams to produce comprehensive analysis, debate, strategy, and quality-verified deliverables.
+End-to-end multi-agent pipeline that takes a project description and runs it through 5 specialized teams to produce comprehensive analysis, debate, strategy, quality-verified, and security-reviewed deliverables.
 
 ## Invocation
 
@@ -19,6 +19,7 @@ Input: Project description
   → Debate Team (argue perspectives)
   → Synthesis Team (integrate & strategize)
   → Quality Team (verify & gate)
+  → Security Team (review & gate) [implementation/testing phases]
   → Output: Verified deliverables to user
 ```
 
@@ -39,7 +40,13 @@ Create the output directory structure:
 mkdir -p output/{phase-name}/{research,debate/round-1,debate/round-2,debate/round-3,synthesis,quality}
 ```
 
-Announce to user: "Starting {phase-name} phase. Running 4-team pipeline: Research → Debate → Synthesis → Quality."
+If phase is `implementation` or `testing`, also create security output directory:
+
+```bash
+mkdir -p output/{phase-name}/security
+```
+
+Announce to user: "Starting {phase-name} phase. Running pipeline: Research → Debate → Synthesis → Quality{' → Security' if implementation/testing phase}."
 
 ---
 
@@ -215,9 +222,8 @@ Write verdict to: output/{phase-name}/quality/team-report.json"
 Read `output/{phase-name}/quality/team-report.json`.
 
 **If verdict = "go":**
-- Report to user: "Quality gate PASSED. Phase {phase-name} complete."
-- Read all team reports and present a consolidated phase summary to the user.
-- Ask user: "Proceed to next phase ({next-phase-name})?"
+- If phase is `implementation` or `testing`: proceed to Security Team (Step 5.5).
+- Otherwise: Report to user: "Quality gate PASSED. Phase {phase-name} complete." Proceed to Phase Completion (Step 7).
 
 **If verdict = "no-go":**
 - Read `required_fixes` and `retry_guidance` from the verdict.
@@ -228,9 +234,83 @@ Read `output/{phase-name}/quality/team-report.json`.
 
 ---
 
-### Step 6: Phase Completion
+### Step 5.5: Security Team (implementation/testing phases only)
 
-After quality gate passes:
+**Phase 1 — Leader assigns tasks:**
+Call `security-lead` agent:
+```
+"You are in TASK ASSIGNMENT mode.
+Project: {project-description}
+Phase: {phase-name}
+Read implementation/code outputs from: output/{phase-name}/
+Write task assignments to: output/{phase-name}/security/task-assignments.json"
+```
+
+**Phase 2 — Members work in parallel:**
+Read `output/{phase-name}/security/task-assignments.json`.
+For each assignment in the `assignments` array, call the corresponding member agent IN PARALLEL. Only assigned members run (not all 15 — the security-lead determines which are relevant).
+
+Possible members (assigned based on codebase):
+- `security-auditor`
+- `dependency-scanner`
+- `secrets-scanner`
+- `iac-security-scanner`
+- `supply-chain-auditor`
+- `api-security-auditor`
+- `compliance-checker`
+- `crypto-auditor`
+- `threat-intel-monitor`
+- `network-attack-reviewer`
+- `container-security-scanner`
+- `incident-response-planner`
+- `pentest-simulator`
+- `smart-contract-auditor`
+- `mobile-security-auditor`
+
+Each member prompt:
+```
+"Your assignment: {assignment from task-assignments.json}
+Read your full assignment from: output/{phase-name}/security/task-assignments.json
+Write your results to: output/{phase-name}/security/member-{agent-name}.json"
+```
+
+**Phase 3 — Leader synthesizes:**
+Resume `security-lead` agent:
+```
+"Your team has completed their work. You are now in SYNTHESIS mode.
+Read all member results from: output/{phase-name}/security/member-*.json
+Write consolidated team report to: output/{phase-name}/security/team-report.json"
+```
+
+Report to user: "Security team complete. Score: {security_score}/10. Verdict: {verdict}."
+
+---
+
+### Step 6: Security Gate (implementation/testing phases only)
+
+Read `output/{phase-name}/security/team-report.json`.
+
+**If verdict = "pass":**
+- Report to user: "Security gate PASSED (score: {score}/10). Phase {phase-name} complete."
+- Proceed to Phase Completion (Step 7).
+
+**If verdict = "fail":**
+- Report to user: "Security gate FAILED (score: {score}/10). Critical/high findings: {summary}."
+- Present the required fixes from `next_steps` to the user.
+- After fixes are applied, re-run security-lead in RE-VERIFICATION mode (Mode 3):
+  ```
+  "You are in RE-VERIFICATION mode.
+  Previous report: output/{phase-name}/security/team-report.json
+  Verify fixes for critical/high findings.
+  Write updated report to: output/{phase-name}/security/team-report.json"
+  ```
+- Maximum 3 retries. After 3 failures, present all remaining issues to user for manual decision.
+
+---
+
+### Step 7: Phase Completion
+
+After quality gate (and security gate, if applicable) passes:
 
 1. Generate `output/{phase-name}/final-report.json` combining all team reports.
 2. Present executive summary to user with:
@@ -238,6 +318,7 @@ After quality gate passes:
    - Debate consensus and unresolved tensions
    - Strategic recommendations from synthesis
    - Quality assessment score
+   - Security assessment score (if applicable)
 3. Ask user to proceed to next phase or stop.
 
 ---
@@ -250,4 +331,5 @@ After quality gate passes:
 | Leader resume fails | Create new leader instance, provide member results in prompt |
 | Quality No-Go | Re-run affected team with fix guidance (max 3 retries) |
 | 3x No-Go exhausted | Present all issues to user, ask for direction |
+| Security gate fail | Re-run security-lead in re-verification mode (max 3 retries) |
 | User requests stop | Save current state, summarize progress, exit gracefully |
