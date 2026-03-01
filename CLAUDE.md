@@ -1,33 +1,41 @@
-# Claude Agent - Sub-Agent 연구 및 개발 프로젝트
+# Claude Agent - 멀티에이전트 파이프라인 프로젝트
 
-Claude Code의 서브에이전트 시스템을 연구, 관리, 개발하기 위한 프로젝트.
+Claude Code 서브에이전트 시스템을 연구하고, 구조화된 멀티에이전트 파이프라인을 구축하는 프로젝트.
 
-## 프로젝트 목적
+## 핵심 시스템: Orchestrated Agent Teams
 
-- Claude Code 서브에이전트 시스템 동작 원리 이해
-- 기존 에이전트 패턴 분석 및 카탈로그화
-- 새로운 커스텀 에이전트 설계 및 개발
-- 에이전트 품질 평가 및 개선
+`/orchestrator` 스킬로 4개 팀(27개 에이전트)이 순차 실행되는 파이프라인.
+
+```
+오케스트레이터 (스킬)
+  ├── 조사팀 (6): research-lead + 5 specialists
+  ├── 토론팀 (8): debate-lead + 6 debaters + moderator
+  ├── 종합팀 (8): synthesis-lead + 7 specialists
+  └── 품질팀 (5): quality-lead + 3 validators + final-reviewer
+```
+
+**파일 기반 오케스트레이션**: 서브에이전트 깊이=1 제약을 우회. 팀리더가 지시서 생성 → 메인이 팀원 병렬 호출 → 팀리더 resume으로 종합.
 
 ## 디렉토리 구조
 
 ```
-research/          # 서브에이전트 시스템 연구 자료
-agents/            # 에이전트 개발
-  templates/       # 재사용 가능한 에이전트 템플릿
-  drafts/          # 개발 중인 에이전트 초안
-catalog/           # 에이전트 인벤토리 및 분석
+.claude/
+  agents/              # 27개 에이전트 정의 파일
+  skills/orchestrator/  # 오케스트레이터 스킬
+research/              # 서브에이전트 시스템 연구 자료
+agents/
+  schemas/             # 공통 출력 포맷 스키마
+  templates/           # 에이전트 템플릿
+  drafts/              # 개발 중인 에이전트 초안
+catalog/               # 에이전트 인벤토리
+docs/plans/            # 설계 문서 및 구현 계획
+output/                # 파이프라인 실행 결과 (gitignore)
 ```
 
 ## 규칙
 
 - 연구 문서는 한국어로 작성
 - 에이전트 정의 파일(.md)은 영어로 작성 (Claude Code 호환성)
-- 에이전트 개발 시 `plugin-dev` 플러그인의 `agent-creator` 에이전트 활용
-- 새 에이전트 작성 전 `catalog/inventory.md`에서 기존 에이전트와 중복 여부 확인
-
-## 핵심 참고 경로
-
-- 빌트인 에이전트: Agent 도구의 `subagent_type` 파라미터 (general-purpose, Explore, Plan, claude-code-guide, code-simplifier)
-- 플러그인 에이전트: `~/.claude/plugins/marketplaces/claude-plugins-official/plugins/*/agents/*.md`
-- 에이전트 개발 레퍼런스: `~/.claude/plugins/.../plugin-dev/skills/agent-development/`
+- 모든 에이전트는 `agents/schemas/output-format.md`의 JSON 포맷으로 결과 출력
+- 팀리더는 opus, 팀원은 sonnet 모델 사용 (final-reviewer 예외: opus)
+- output/ 디렉토리의 결과 파일은 커밋하지 않음
