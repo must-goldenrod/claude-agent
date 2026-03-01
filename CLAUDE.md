@@ -4,7 +4,7 @@ Claude Code 서브에이전트 시스템을 연구하고, 구조화된 멀티에
 
 ## 핵심 시스템: Orchestrated Agent Teams
 
-`/orchestrator` 스킬로 10개 팀(55개 에이전트)이 파일 기반 오케스트레이션으로 운영되는 파이프라인.
+`/orchestrator` 스킬로 10개 팀(68개 에이전트)이 파일 기반 오케스트레이션으로 운영되는 파이프라인.
 
 ```
 오케스트레이터 (스킬)
@@ -16,7 +16,7 @@ Claude Code 서브에이전트 시스템을 연구하고, 구조화된 멀티에
   ├── 코드구현팀 (6): code-lead + code-architect, frontend-developer, backend-developer, code-reviewer-impl, refactorer
   ├── 테스트팀 (4): testing-lead + unit-test-writer, integration-test-writer, test-runner
   ├── DB팀 (3): database-lead + data-modeler, migration-writer
-  ├── 보안팀 (3): security-lead + security-auditor, dependency-scanner
+  ├── 보안팀 (16): security-lead + security-auditor, dependency-scanner, secrets-scanner, iac-security-scanner, supply-chain-auditor, api-security-auditor, compliance-checker, crypto-auditor, threat-intel-monitor, network-attack-reviewer, container-security-scanner, incident-response-planner, pentest-simulator, smart-contract-auditor, mobile-security-auditor
   ├── 문서팀 (3): docs-lead + api-doc-writer, guide-writer
   └── 인프라팀 (3): infra-lead + containerizer, infra-coder
 ```
@@ -27,7 +27,7 @@ Claude Code 서브에이전트 시스템을 연구하고, 구조화된 멀티에
 
 ```
 .claude/
-  agents/              # 55개 에이전트 정의 파일
+  agents/              # 68개 에이전트 정의 파일
   skills/orchestrator/  # 오케스트레이터 스킬
 research/              # 서브에이전트 시스템 연구 자료
 agents/

@@ -1,6 +1,6 @@
 # Claude Code Sub-Agent 인벤토리
 
-## 프로젝트 에이전트 (55개)
+## 프로젝트 에이전트 (68개)
 
 10개 팀으로 구성된 멀티에이전트 파이프라인. 팀리더(opus)가 작업 지시 및 종합, 팀원(sonnet)이 전문 분석 수행.
 
@@ -94,9 +94,22 @@
 
 | 에이전트 | 모델 | 도구 | 역할 |
 |----------|------|------|------|
-| `security-lead` | opus | Read, Write, Grep, Glob, Bash | 보안 평가 전략/위협 모델링/최종 판정 |
-| `security-auditor` | sonnet | Read, Grep, Glob, Bash, Write | OWASP Top 10 코드 감사/시크릿 점검 |
-| `dependency-scanner` | sonnet | Read, Bash, Grep, Glob, Write, WebSearch | CVE 스캔/라이선스 호환성/업그레이드 평가 |
+| `security-lead` | opus | Read, Write, Grep, Glob, Bash | 보안 평가 전략/위협 모델링/15명 팀 조율/최종 판정 |
+| `security-auditor` | sonnet | Read, Grep, Glob, Bash, Write | OWASP Web Top 10 코드 감사/SAST 연동 |
+| `dependency-scanner` | sonnet | Read, Bash, Grep, Glob, Write, WebSearch | CVE 스캔/라이선스 호환성/SBOM/컨테이너 이미지 |
+| `secrets-scanner` | sonnet | Read, Grep, Glob, Bash, Write | Git 히스토리/코드 시크릿 탐지/엔트로피 분석 |
+| `iac-security-scanner` | sonnet | Read, Grep, Glob, Bash, Write | Terraform/K8s/Dockerfile/CloudFormation 보안 검사 |
+| `supply-chain-auditor` | sonnet | Read, Grep, Glob, Bash, Write, WebSearch | CI/CD 파이프라인/빌드 무결성/lockfile 변조 탐지 |
+| `api-security-auditor` | opus | Read, Grep, Glob, Bash, Write | OWASP API Top 10/JWT·OAuth/GraphQL 보안 |
+| `compliance-checker` | opus | Read, Grep, Glob, Write | GDPR/PCI DSS/HIPAA/SOC 2 컴플라이언스 매핑 |
+| `crypto-auditor` | sonnet | Read, Grep, Glob, Write | 암호화 알고리즘/키 파생/TLS/PRNG 감사 |
+| `threat-intel-monitor` | sonnet | Read, Glob, Grep, WebSearch, WebFetch, Write | CVE 매칭/KEV 카탈로그/벤더 보안 공지 모니터링 |
+| `network-attack-reviewer` | sonnet | Read, Grep, Glob, Write | SSRF 심층분석/요청 스머글링/오픈 리다이렉트/WebSocket |
+| `container-security-scanner` | sonnet | Read, Grep, Glob, Bash, Write | 컨테이너 이미지/docker-compose/K8s PSS/시크릿 관리 |
+| `incident-response-planner` | opus | Read, Grep, Glob, Write | 사고 대응 플레이북/모니터링 규칙/포렌식 체크리스트 |
+| `pentest-simulator` | opus | Read, Grep, Glob, Write | 취약점 연쇄/MITRE ATT&CK 매핑/폭발 반경 평가 |
+| `smart-contract-auditor` | opus | Read, Grep, Glob, Write | OWASP SC Top 10/DeFi 보안/프록시 계약 |
+| `mobile-security-auditor` | sonnet | Read, Grep, Glob, Write | OWASP MASVS/딥링크 인젝션/WebView 보안 |
 
 ### 문서팀 (Documentation) — green
 
