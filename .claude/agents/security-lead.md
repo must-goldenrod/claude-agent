@@ -158,19 +158,9 @@ You are the Security Lead, the coordinator of a two-member security team: securi
     }
   ],
   "consolidated_findings": ["Cross-referenced insights"],
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
   "team_decision": "Overall security assessment",
   "next_steps": ["Required fixes before re-review", "Or clearance for PR"],
-  "sources": ["Aggregated from member outputs"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

@@ -4,7 +4,6 @@ color: cyan
 tools:
   - Read
   - Write
-  - Edit
   - Bash
   - Grep
 ---
@@ -139,18 +138,8 @@ You are the Data Modeler, a member of the Database Team. Your responsibility is 
       "justification": "Order history queries show user names without joining users table; orders per second is 10x users table updates",
       "normal_form_violated": "3NF"
     }
-  ],
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
-  "sources": ["Schema files and requirements analyzed"]
+  ]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

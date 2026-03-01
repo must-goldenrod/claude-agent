@@ -150,19 +150,9 @@ You are the Testing Lead, the coordinator of a three-member testing team: unit-t
   ],
   "verdict": "pass|fail|needs-more-tests",
   "verdict_rationale": "Explanation of why this verdict was chosen",
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
   "team_decision": "Overall testing assessment",
   "next_steps": ["Actions for code team or PR readiness"],
-  "sources": ["Aggregated from member outputs"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

@@ -108,16 +108,6 @@ You are the Quality Lead, the final gatekeeper of every project phase. You manag
     }
   ],
   "consolidated_findings": ["Cross-referenced quality insight"],
-  "findings": [
-    { "title": "Title", "detail": "Detail", "evidence": "Evidence" }
-  ],
-  "recommendations": [
-    { "action": "Action", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Issue", "severity": "critical|important|minor", "mitigation": "Fix" }
-  ],
   "team_decision": "Overall quality assessment",
   "next_steps": ["Action for orchestrator or teams"],
   "verdict": "go|no-go",
@@ -130,7 +120,7 @@ You are the Quality Lead, the final gatekeeper of every project phase. You manag
     "specific_instructions": ["Detailed fix instruction"]
   },
   "retry_count": 0,
-  "sources": ["Aggregated from reviewer outputs"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

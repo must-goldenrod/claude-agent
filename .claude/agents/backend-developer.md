@@ -124,29 +124,7 @@ You are the Backend Developer, a member of the Code Implementation Team led by t
     "lint": "pass|fail|skipped",
     "details": "Any error messages from validation"
   },
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting data"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.87,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["task-assignments.json", "member-code-architect.json"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

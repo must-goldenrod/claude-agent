@@ -141,31 +141,9 @@ You are the Code Lead, the coordinator of a five-member code implementation team
     "deviations": ["Controllers placed in /handlers instead of /controllers"]
   },
   "consolidated_findings": ["Cross-referenced insights from all members"],
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting data or code references"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall assessment of implementation readiness",
   "next_steps": ["Action 1 for downstream teams", "Action 2"],
-  "sources": ["Aggregated from member outputs"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

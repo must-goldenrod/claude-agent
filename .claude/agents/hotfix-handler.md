@@ -126,29 +126,7 @@ Follow the standard output schema from `agents/schemas/output-format.md` with th
     "revert_commands": ["git revert <hotfix-merge-commit>"],
     "additional_rollback_steps": ["Revert database migration X if applicable"]
   },
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Git command output or code analysis"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["git log output", "code analysis"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

@@ -143,29 +143,7 @@ Follow the standard output schema from `agents/schemas/output-format.md` with th
       "estimated_savings": "2-3 minutes"
     }
   ],
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Pipeline logs or timing data"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["gh run view output", "workflow YAML files"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

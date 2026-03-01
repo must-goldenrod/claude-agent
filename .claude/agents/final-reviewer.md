@@ -109,13 +109,6 @@ Write your findings to `output/{phase}/quality/member-final-reviewer.json`.
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Files reviewed and scope of final review",
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting evidence from the outputs"
-    }
-  ],
   "dimension_scores": {
     "completeness": { "score": 8, "justification": "Why this score", "gaps": [] },
     "consistency": { "score": 7, "justification": "Why this score", "issues": [] },
@@ -129,18 +122,11 @@ Write your findings to `output/{phase}/quality/member-final-reviewer.json`.
       { "fix": "Description", "status": "resolved|still-open", "notes": "Details" }
     ]
   },
-  "recommendations": [
-    { "action": "Action", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Issue", "severity": "critical|important|minor", "mitigation": "Fix" }
-  ],
   "verdict": "pass|fail|needs-revision",
   "checklist": [
     { "item": "Check description", "status": "pass|fail", "notes": "Details" }
   ],
-  "sources": []
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

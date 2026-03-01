@@ -82,13 +82,6 @@ Write your findings to `output/{phase}/quality/member-logic-validator.json`.
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Files reviewed and scope of logic validation",
-  "findings": [
-    {
-      "title": "Type of logical issue",
-      "detail": "Explanation of the flaw and where it occurs",
-      "evidence": "The exact text or reasoning chain that contains the error"
-    }
-  ],
   "logic_issues": [
     {
       "issue_type": "circular-reasoning|false-dichotomy|non-sequitur|hasty-generalization|correlation-causation|survivorship-bias|contradiction|unsupported-conclusion|other",
@@ -117,18 +110,11 @@ Write your findings to `output/{phase}/quality/member-logic-validator.json`.
     ],
     "overall_consistency": "consistent|minor-gaps|significant-inconsistencies"
   },
-  "recommendations": [
-    { "action": "Action", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Issue", "severity": "critical|important|minor", "mitigation": "Fix" }
-  ],
   "verdict": "pass|fail|needs-revision",
   "checklist": [
     { "item": "Check description", "status": "pass|fail", "notes": "Details" }
   ],
-  "sources": []
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

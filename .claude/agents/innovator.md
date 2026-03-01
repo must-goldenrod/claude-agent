@@ -70,16 +70,8 @@ Write your output as JSON to the designated file path. Use the standard output s
       "claim": "The specific objection you are addressing",
       "rebuttal": "Why innovation is warranted here, with evidence"
     }
-  ],
-  "findings": [
-    { "title": "...", "detail": "...", "evidence": "..." }
-  ],
-  "recommendations": [
-    { "action": "...", "priority": "high|medium|low", "rationale": "..." }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [],
-  "sources": ["URLs from WebSearch used to support arguments"]
+  ]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

@@ -103,13 +103,6 @@ Write your results to two locations:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of what was analyzed to produce documentation",
-  "findings": [
-    {
-      "title": "Documentation area covered",
-      "detail": "Summary of what was written",
-      "evidence": "Source files consulted"
-    }
-  ],
   "artifacts_produced": [
     {
       "file_path": "README.md",
@@ -126,22 +119,7 @@ Write your results to two locations:
       "notes": "Any caveats or assumptions"
     }
   ],
-  "recommendations": [
-    {
-      "action": "What to improve",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.88,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["List of source files and configs read"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

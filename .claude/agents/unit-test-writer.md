@@ -117,17 +117,7 @@ You are the Unit Test Writer, a member of the Testing Team. Your sole responsibi
     "functions_total": 10,
     "estimated_line_coverage_percent": 85
   },
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
-  "sources": ["Source files analyzed"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

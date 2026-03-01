@@ -116,29 +116,7 @@ You are the Refactorer, a member of the Code Implementation Team led by the Code
     "grep_verification": "pass|fail",
     "details": "Any error messages or remaining pattern instances"
   },
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting data"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.9,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["task-assignments.json", "member-code-reviewer-impl.json"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

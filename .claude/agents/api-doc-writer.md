@@ -93,13 +93,6 @@ Write your results to two locations:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of what code was analyzed",
-  "findings": [
-    {
-      "title": "Endpoint or API area documented",
-      "detail": "Summary of what was documented",
-      "evidence": "Source file and line references"
-    }
-  ],
   "artifacts_produced": [
     {
       "file_path": "docs/api-reference.md",
@@ -116,22 +109,7 @@ Write your results to two locations:
     }
   ],
   "undocumented_endpoints": ["POST /api/v1/internal/debug"],
-  "recommendations": [
-    {
-      "action": "What to improve",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.90,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["List of source files read"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

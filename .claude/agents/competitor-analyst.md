@@ -86,39 +86,7 @@ Follow the standard output schema from `agents/schemas/output-format.md`:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of the assigned task",
-  "findings": [
-    {
-      "title": "Feature Gap: No competitor offers real-time collaboration on dashboards",
-      "detail": "Analysis of the gap and why it represents an opportunity",
-      "evidence": "Feature comparison data from competitor product pages and reviews"
-    },
-    {
-      "title": "Competitor X SWOT: Strong brand but high churn signals",
-      "detail": "SWOT breakdown with supporting evidence",
-      "evidence": "G2 reviews, social media sentiment, pricing page analysis"
-    },
-    {
-      "title": "Moat Assessment: Competitor Y has strong network effects",
-      "detail": "Network effects analysis and implications for market entry",
-      "evidence": "User growth data, marketplace metrics, integration ecosystem"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "Differentiate on X feature which competitors are weak on",
-      "priority": "high|medium|low",
-      "rationale": "Based on competitive gap analysis and user demand signals"
-    }
-  ],
-  "confidence_score": 0.0,
-  "concerns": [
-    {
-      "issue": "Competitor X recently raised $100M and may accelerate feature development",
-      "severity": "critical|important|minor",
-      "mitigation": "Focus on differentiation areas that require deep domain expertise, not just capital"
-    }
-  ],
-  "sources": ["https://competitor.com/pricing", "https://g2.com/products/competitor/reviews"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

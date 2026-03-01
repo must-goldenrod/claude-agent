@@ -80,34 +80,7 @@ Follow the standard output schema from `agents/schemas/output-format.md`:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of the assigned task",
-  "findings": [
-    {
-      "title": "Framework Comparison: Next.js vs Remix vs SvelteKit",
-      "detail": "Pros/cons matrix and recommendation",
-      "evidence": "Benchmark data, community metrics, case studies"
-    },
-    {
-      "title": "Database Trade-off: PostgreSQL vs DynamoDB for this use case",
-      "detail": "Analysis of consistency, scalability, cost, and operational burden",
-      "evidence": "Published benchmarks and production case studies"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "Adopt technology X for component Y",
-      "priority": "high|medium|low",
-      "rationale": "Based on performance benchmarks and ecosystem maturity"
-    }
-  ],
-  "confidence_score": 0.0,
-  "concerns": [
-    {
-      "issue": "Technology X has a small community and uncertain long-term support",
-      "severity": "critical|important|minor",
-      "mitigation": "Evaluate fallback to Technology Y with minimal migration cost"
-    }
-  ],
-  "sources": ["https://example.com/benchmark", "https://example.com/docs"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

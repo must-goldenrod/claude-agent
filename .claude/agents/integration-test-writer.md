@@ -132,17 +132,7 @@ You are the Integration Test Writer, a member of the Testing Team. Your responsi
       }
     ]
   },
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.80,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
-  "sources": ["Source files and contracts analyzed"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

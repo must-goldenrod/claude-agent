@@ -142,31 +142,9 @@ You are the DevOps Lead, the coordinator of a five-member Git/DevOps team: git-s
     }
   ],
   "consolidated_findings": ["Cross-referenced insight 1", "Cross-referenced insight 2"],
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Git command output or observed state"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall assessment of the workflow execution",
   "next_steps": ["Action 1", "Action 2"],
-  "sources": ["git log output", "gh CLI output"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

@@ -85,13 +85,6 @@ Write your findings to `output/{phase}/quality/member-bias-detector.json`.
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Files reviewed and scope of bias detection",
-  "findings": [
-    {
-      "title": "Bias category",
-      "detail": "Explanation of how the bias manifests",
-      "evidence": "Specific text or pattern from the source files"
-    }
-  ],
   "biases_found": [
     {
       "bias_type": "confirmation|anchoring|overconfidence|sunk-cost|availability|survivorship|groupthink|tech-vendor|recency|stakeholder|other",
@@ -114,18 +107,11 @@ Write your findings to `output/{phase}/quality/member-bias-detector.json`.
     "under_weighted": ["Topics or findings given too little weight"],
     "notes": "Details on synthesis weighting assessment"
   },
-  "recommendations": [
-    { "action": "Action", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Issue", "severity": "critical|important|minor", "mitigation": "Fix" }
-  ],
   "verdict": "pass|fail|needs-revision",
   "checklist": [
     { "item": "Check description", "status": "pass|fail", "notes": "Details" }
   ],
-  "sources": []
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

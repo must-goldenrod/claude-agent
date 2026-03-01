@@ -139,17 +139,7 @@ You are the Migration Writer, a member of the Database Team. Your responsibility
     "new_migration_count": 3,
     "naming_convention": "YYYYMMDD_NNN_description"
   },
-  "findings": [
-    { "title": "Finding", "detail": "Explanation", "evidence": "Data" }
-  ],
-  "recommendations": [
-    { "action": "What to do", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Description", "severity": "critical|important|minor", "mitigation": "Approach" }
-  ],
-  "sources": ["Schema designs and existing migrations analyzed"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

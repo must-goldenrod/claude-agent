@@ -69,18 +69,8 @@ Write your output as JSON to the designated file path. Use the standard output s
       "claim": "The specific strong argument you are challenging",
       "rebuttal": "Why this argument has a flaw, with evidence"
     }
-  ],
-  "findings": [
-    { "title": "...", "detail": "...", "evidence": "..." }
-  ],
-  "recommendations": [
-    { "action": "...", "priority": "high|medium|low", "rationale": "..." }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "...", "severity": "critical|important|minor", "mitigation": "..." }
-  ],
-  "sources": []
+  ]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

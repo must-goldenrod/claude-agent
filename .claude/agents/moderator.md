@@ -85,16 +85,8 @@ Write your output as JSON to `output/{phase}/debate/debate-summary.json`:
   ],
   "recommended_consensus_points": [
     { "point": "Recommended position", "rationale": "Why this represents fair consensus", "dissent": "Who disagrees and why" }
-  ],
-  "findings": [
-    { "title": "...", "detail": "...", "evidence": "..." }
-  ],
-  "recommendations": [
-    { "action": "...", "priority": "high|medium|low", "rationale": "..." }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [],
-  "sources": []
+  ]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

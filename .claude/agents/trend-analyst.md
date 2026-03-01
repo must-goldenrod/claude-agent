@@ -76,34 +76,7 @@ Follow the standard output schema from `agents/schemas/output-format.md`:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of the assigned task",
-  "findings": [
-    {
-      "title": "EU AI Act: Mandatory compliance by 2026",
-      "detail": "Impact on product architecture and data handling requirements",
-      "evidence": "Legislative text, analyst commentary, enforcement timeline"
-    },
-    {
-      "title": "Edge AI inference reaching production maturity",
-      "detail": "On-device model execution enables new product categories with lower latency and better privacy",
-      "evidence": "Benchmark improvements, chipset roadmaps, early adopter case studies"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "Design data pipeline to support GDPR and AI Act compliance from day one",
-      "priority": "high|medium|low",
-      "rationale": "Retrofitting compliance is 3-5x more expensive than building it in"
-    }
-  ],
-  "confidence_score": 0.0,
-  "concerns": [
-    {
-      "issue": "Regulatory timeline is uncertain and subject to political shifts",
-      "severity": "critical|important|minor",
-      "mitigation": "Build modular compliance layer that can adapt to final regulations"
-    }
-  ],
-  "sources": ["https://example.com/regulation", "https://example.com/trend-report"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

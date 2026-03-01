@@ -98,31 +98,9 @@ You are the Research Lead, the coordinator of a five-member research team: web-r
   ],
   "consolidated_findings": ["Cross-referenced insight 1", "Cross-referenced insight 2"],
   "knowledge_gaps": ["Gap 1", "Gap 2"],
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting data or quotes"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall team assessment and recommendation",
-  "next_steps": ["Action 1 for downstream teams", "Action 2"],
-  "sources": ["Aggregated from member outputs"]
+  "next_steps": ["Action 1 for downstream teams", "Action 2"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

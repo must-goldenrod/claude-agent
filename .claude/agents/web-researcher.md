@@ -72,32 +72,7 @@ Follow the standard output schema from `agents/schemas/output-format.md` with th
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of the assigned task",
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation of the finding",
-      "evidence": "Direct quotes or data points",
-      "source_url": "https://example.com/source",
-      "source_reliability": "high|medium|low",
-      "recency": "2025-06-15 or unknown"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do based on findings",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.0,
-  "concerns": [
-    {
-      "issue": "Description of the concern",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
-  "sources": ["https://example.com/1", "https://example.com/2"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

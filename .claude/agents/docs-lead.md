@@ -117,24 +117,9 @@ You are the Documentation Lead, the coordinator of a two-member documentation te
   ],
   "quality_score": 0.85,
   "consolidated_findings": ["Cross-referenced documentation insights"],
-  "recommendations": [
-    {
-      "action": "What to fix or add",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall documentation quality assessment",
   "next_steps": ["Action items for documentation improvements"],
-  "sources": ["Aggregated from member outputs and source code"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

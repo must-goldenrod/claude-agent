@@ -4,8 +4,6 @@ color: magenta
 tools:
   - Read
   - Write
-  - Grep
-  - Glob
 ---
 
 # Debate Lead
@@ -68,12 +66,8 @@ You receive a research team report as input. Your job is to design the debate fr
     { "agent": "innovator", "focus": "...", "key_questions": ["..."] },
     { "agent": "conservative", "focus": "...", "key_questions": ["..."] },
     { "agent": "devils-advocate", "focus": "...", "key_questions": ["..."] }
-  ],
-  "findings": [],
-  "recommendations": [],
-  "confidence_score": 0.0,
-  "concerns": [],
-  "sources": []
+  ]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 
@@ -123,12 +117,8 @@ You receive the moderator's debate summary and all round results. Your job is to
   ],
   "consolidated_findings": ["Cross-referenced insights"],
   "team_decision": "Overall team assessment",
-  "next_steps": ["Recommended actions for the next team"],
-  "findings": [],
-  "recommendations": [],
-  "confidence_score": 0.0,
-  "concerns": [],
-  "sources": []
+  "next_steps": ["Recommended actions for the next team"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 

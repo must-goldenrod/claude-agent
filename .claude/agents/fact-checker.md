@@ -82,13 +82,6 @@ Write your findings to `output/{phase}/quality/member-fact-checker.json`.
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Files reviewed and scope of fact-checking",
-  "findings": [
-    {
-      "title": "Claim category or topic",
-      "detail": "The specific claim and verification result",
-      "evidence": "Source URL or reference that confirms or contradicts"
-    }
-  ],
   "claims_checked": [
     {
       "original_claim": "Exact text of the claim as stated in the source file",
@@ -98,18 +91,11 @@ Write your findings to `output/{phase}/quality/member-fact-checker.json`.
       "correction": "Correct information if status is false or outdated, null otherwise"
     }
   ],
-  "recommendations": [
-    { "action": "Action", "priority": "high|medium|low", "rationale": "Why" }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    { "issue": "Issue", "severity": "critical|important|minor", "mitigation": "Fix" }
-  ],
   "verdict": "pass|fail|needs-revision",
   "checklist": [
     { "item": "Check description", "status": "pass|fail", "notes": "Details" }
   ],
-  "sources": ["URLs and references used during verification"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

@@ -163,24 +163,9 @@ You are the Infrastructure Lead, the coordinator of a two-member infrastructure 
     "warnings": ["Database migration step needs manual trigger"]
   },
   "consolidated_findings": ["Cross-referenced infrastructure insights"],
-  "recommendations": [
-    {
-      "action": "What to fix or improve",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall infrastructure readiness assessment",
   "next_steps": ["Action items for deployment or further infrastructure work"],
-  "sources": ["Aggregated from member outputs and infrastructure artifacts"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

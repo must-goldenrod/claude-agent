@@ -123,31 +123,9 @@ Your team's purpose is to transform raw research findings and debate conclusions
     "metrics_framework": {},
     "change_management_plan": {}
   },
-  "findings": [
-    {
-      "title": "Finding title",
-      "detail": "Detailed explanation",
-      "evidence": "Supporting data or quotes"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "What to do",
-      "priority": "high|medium|low",
-      "rationale": "Why this matters"
-    }
-  ],
-  "confidence_score": 0.85,
-  "concerns": [
-    {
-      "issue": "Description",
-      "severity": "critical|important|minor",
-      "mitigation": "Suggested approach"
-    }
-  ],
   "team_decision": "Overall synthesis team assessment and strategic recommendation",
   "next_steps": ["Action 1 for quality review", "Action 2"],
-  "sources": ["Aggregated from member outputs and upstream team reports"]
+  "_standard_fields": "Plus: findings[], recommendations[], confidence_score, concerns[], sources[] (see agents/schemas/output-format.md)"
 }
 ```
 

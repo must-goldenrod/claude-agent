@@ -76,34 +76,7 @@ Follow the standard output schema from `agents/schemas/output-format.md`:
   "phase": "phase-name",
   "timestamp": "ISO-8601",
   "input_summary": "Brief description of the assigned task",
-  "findings": [
-    {
-      "title": "TAM Estimate: $X Billion",
-      "detail": "Methodology and breakdown",
-      "evidence": "Source data, analyst quotes, or calculations"
-    },
-    {
-      "title": "Pricing Benchmark: Competitor X charges $Y/mo",
-      "detail": "Tier structure and value metric analysis",
-      "evidence": "Pricing page data, public financial filings"
-    }
-  ],
-  "recommendations": [
-    {
-      "action": "Target SMB segment with usage-based pricing at $X/unit",
-      "priority": "high|medium|low",
-      "rationale": "Based on comparable ARPU and conversion data"
-    }
-  ],
-  "confidence_score": 0.0,
-  "concerns": [
-    {
-      "issue": "Market size estimates vary widely across sources",
-      "severity": "critical|important|minor",
-      "mitigation": "Triangulated using three independent methodologies"
-    }
-  ],
-  "sources": ["https://example.com/report1", "https://example.com/report2"]
+  // Plus standard output fields: findings, recommendations, confidence_score, concerns, sources
 }
 ```
 
