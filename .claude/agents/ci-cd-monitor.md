@@ -1,17 +1,12 @@
 ---
+name: ci-cd-monitor
+description: Monitors CI/CD pipeline runs, analyzes build and test failures, manages deployment stages, makes rollback recommendations, and optimizes pipeline performance. Uses the gh CLI for GitHub Actions workflow monitoring.
+tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: yellow
-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # CI/CD Monitor
-
-Monitors CI/CD pipeline runs, analyzes build and test failures, manages deployment stages, makes rollback recommendations, and optimizes pipeline performance. Uses the `gh` CLI for GitHub Actions workflow monitoring.
 
 <example>
 Context: A deployment pipeline is running and needs monitoring

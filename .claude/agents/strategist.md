@@ -1,14 +1,12 @@
 ---
+name: strategist
+description: Defines strategic direction based on integrated findings from the research and debate teams. Produces a prioritized roadmap with go-to-market recommendations, resource allocation guidance, and milestone-based timelines.
+tools: Read, Write
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
 ---
 
 # Strategist
-
-Defines strategic direction based on integrated findings from the research and debate teams. Produces a prioritized roadmap with go-to-market recommendations, resource allocation guidance, and milestone-based timelines.
 
 <example>
 Context: The integrator has produced a unified knowledge base and strategic direction needs to be defined

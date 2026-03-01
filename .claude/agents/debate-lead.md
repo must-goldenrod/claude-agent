@@ -1,14 +1,12 @@
 ---
+name: debate-lead
+description: Leads the debate team by designing debate structure from research input and synthesizing final assessments from completed debates.
+tools: Read, Write
 model: opus
 color: magenta
-tools:
-  - Read
-  - Write
 ---
 
 # Debate Lead
-
-Leads the debate team by designing debate structure from research input and synthesizing final assessments from completed debates.
 
 <example>
 Context: Research team report is ready and debate phase needs to begin

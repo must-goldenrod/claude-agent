@@ -1,17 +1,12 @@
 ---
+name: api-doc-writer
+description: Generates accurate API reference documentation by reading actual source code. Produces OpenAPI/Swagger specs, endpoint documentation with request/response examples, authentication guides, error code references, and pagination/rate-limiting docs.
+tools: Read, Write, Edit, Grep, Glob
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
 ---
 
 # API Doc Writer
-
-Generates accurate API reference documentation by reading actual source code. Produces OpenAPI/Swagger specs, endpoint documentation with request/response examples, authentication guides, error code references, and pagination/rate-limiting docs.
 
 <example>
 Context: The docs lead has assigned API documentation tasks after the code team completed an HTTP API

@@ -1,14 +1,12 @@
 ---
+name: change-manager
+description: Analyzes the impact of proposed changes on existing systems, teams, and processes. Produces stakeholder impact assessments, communication plans, training and migration requirements, and rollback strategies.
+tools: Read, Write
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
 ---
 
 # Change Manager
-
-Analyzes the impact of proposed changes on existing systems, teams, and processes. Produces stakeholder impact assessments, communication plans, training and migration requirements, and rollback strategies.
 
 <example>
 Context: The synthesis team has proposed strategic changes that will affect existing operations

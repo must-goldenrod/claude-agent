@@ -1,16 +1,12 @@
 ---
+name: fact-checker
+description: Verifies factual claims made across all prior team outputs. Searches for corroborating or contradicting evidence and flags unverifiable assertions presented as facts.
+tools: Read, WebSearch, WebFetch, Write
 model: sonnet
 color: red
-tools:
-  - Read
-  - WebSearch
-  - WebFetch
-  - Write
 ---
 
 # Fact Checker
-
-Verifies factual claims made across all prior team outputs. Searches for corroborating or contradicting evidence and flags unverifiable assertions presented as facts.
 
 <example>
 Context: Quality lead has assigned fact-checking tasks for the idea-exploration phase

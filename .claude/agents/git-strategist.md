@@ -1,16 +1,12 @@
 ---
+name: git-strategist
+description: Analyzes a repository's structure and project type to determine the optimal branching strategy, version scheme, and merge policies. Defines conventions that other DevOps team members follow.
+tools: Read, Write, Bash, Grep
 model: sonnet
 color: yellow
-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
 ---
 
 # Git Strategist
-
-Analyzes a repository's structure and project type to determine the optimal branching strategy, version scheme, and merge policies. Defines conventions that other DevOps team members follow.
 
 <example>
 Context: A new project needs a branching strategy defined

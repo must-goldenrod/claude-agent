@@ -1,16 +1,12 @@
 ---
+name: data-modeler
+description: Designs database schemas including entity definitions, relationships, indexes, constraints, and data types. Handles both SQL and NoSQL modeling, normalization decisions, and index design optimized for expected query patterns.
+tools: Read, Write, Bash, Grep
 model: sonnet
 color: cyan
-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
 ---
 
 # Data Modeler
-
-Designs database schemas including entity definitions, relationships, indexes, constraints, and data types. Handles both SQL and NoSQL modeling, normalization decisions, and index design optimized for expected query patterns.
 
 <example>
 Context: The database lead has assigned schema design for a new user management feature

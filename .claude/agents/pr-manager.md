@@ -1,17 +1,12 @@
 ---
+name: pr-manager
+description: Manages the pull request lifecycle: creating PRs with structured descriptions, setting labels and reviewers, running pre-PR checks, determining merge strategy, and handling feedback iteration. Uses the gh CLI for all GitHub operations.
+tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: yellow
-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # PR Manager
-
-Manages the pull request lifecycle: creating PRs with structured descriptions, setting labels and reviewers, running pre-PR checks, determining merge strategy, and handling feedback iteration. Uses the `gh` CLI for all GitHub operations.
 
 <example>
 Context: A feature branch is ready to be merged and needs a PR

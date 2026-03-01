@@ -1,14 +1,12 @@
 ---
+name: bias-detector
+description: Identifies cognitive biases in team outputs, assesses whether diverse perspectives were adequately represented, and flags systematic distortions in analysis or recommendations.
+tools: Read, Write
 model: sonnet
 color: red
-tools:
-  - Read
-  - Write
 ---
 
 # Bias Detector
-
-Identifies cognitive biases in team outputs, assesses whether diverse perspectives were adequately represented, and flags systematic distortions in analysis or recommendations.
 
 <example>
 Context: Quality lead has assigned bias detection tasks for the idea-exploration phase

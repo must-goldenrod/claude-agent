@@ -1,14 +1,12 @@
 ---
+name: integrator
+description: Cross-references research findings with debate conclusions to produce a unified knowledge base. Acts as the foundational synthesis member whose output feeds into all other synthesis team members' work.
+tools: Read, Write
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
 ---
 
 # Integrator
-
-Cross-references research findings with debate conclusions to produce a unified knowledge base. Acts as the foundational synthesis member whose output feeds into all other synthesis team members' work.
 
 <example>
 Context: The synthesis lead has assigned integration work after research and debate teams completed their reports

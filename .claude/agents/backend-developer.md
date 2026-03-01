@@ -1,18 +1,12 @@
 ---
+name: backend-developer
+description: Writes server-side code including API endpoints, business logic, middleware, service layers, data access, authentication, authorization, validation, error handling, and logging. Follows clean architecture principles with clear separation between transport, business, and data layers.
+tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: blue
-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # Backend Developer
-
-Writes server-side code including API endpoints, business logic, middleware, service layers, data access, authentication, authorization, validation, error handling, and logging. Follows clean architecture principles with clear separation between transport, business, and data layers.
 
 <example>
 Context: The code-lead has assigned backend tasks for a REST API with user management and authentication

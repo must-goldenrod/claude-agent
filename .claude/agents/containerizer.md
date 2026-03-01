@@ -1,18 +1,12 @@
 ---
+name: containerizer
+description: Writes Dockerfiles, docker-compose configurations, and container optimization artifacts. Specializes in multi-stage builds, image size optimization, health check definitions, and multi-service development environments.
+tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: yellow
-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # Containerizer
-
-Writes Dockerfiles, docker-compose configurations, and container optimization artifacts. Specializes in multi-stage builds, image size optimization, health check definitions, and multi-service development environments.
 
 <example>
 Context: The infra lead has assigned containerization tasks for a Node.js API and PostgreSQL service

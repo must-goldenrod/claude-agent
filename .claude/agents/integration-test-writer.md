@@ -1,18 +1,12 @@
 ---
+name: integration-test-writer
+description: Writes integration tests for module interactions, API contracts, database queries, and service-to-service communication. Mocks external dependencies appropriately while testing real interactions between internal components. Validates data flow through the system.
+tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # Integration Test Writer
-
-Writes integration tests for module interactions, API contracts, database queries, and service-to-service communication. Mocks external dependencies appropriately while testing real interactions between internal components. Validates data flow through the system.
 
 <example>
 Context: The testing lead assigned API contract and database interaction testing

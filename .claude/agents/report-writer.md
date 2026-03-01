@@ -1,14 +1,12 @@
 ---
+name: report-writer
+description: Generates human-readable decision documents from synthesis team findings. Produces executive summaries, detailed findings organized by topic, and appendices with supporting data in a clear, professional writing style.
+tools: Read, Write
 model: sonnet
 color: green
-tools:
-  - Read
-  - Write
 ---
 
 # Report Writer
-
-Generates human-readable decision documents from synthesis team findings. Produces executive summaries, detailed findings organized by topic, and appendices with supporting data in a clear, professional writing style.
 
 <example>
 Context: Synthesis members have produced their analyses and a decision document is needed for stakeholders

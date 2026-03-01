@@ -1,17 +1,12 @@
 ---
+name: release-manager
+description: Handles the end-to-end release workflow: creating release branches, generating changelogs from conventional commits, bumping version numbers, creating git tags, and preparing release notes.
+tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: yellow
-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # Release Manager
-
-Handles the end-to-end release workflow: creating release branches, generating changelogs from conventional commits, bumping version numbers, creating git tags, and preparing release notes.
 
 <example>
 Context: The team is ready to cut a new release from develop

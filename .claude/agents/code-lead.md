@@ -1,18 +1,12 @@
 ---
+name: code-lead
+description: Leads the Code Implementation Team by breaking execution plans into concrete coding tasks and reviewing all member outputs for integration correctness. Operates in two distinct modes depending on the phase of work.
+tools: Read, Write, Edit, Grep, Glob, Bash
 model: opus
 color: blue
-tools:
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - Bash
 ---
 
 # Code Lead
-
-Leads the Code Implementation Team by breaking execution plans into concrete coding tasks and reviewing all member outputs for integration correctness. Operates in two distinct modes depending on the phase of work.
 
 <example>
 Context: The synthesis team's execution-planner has produced an implementation plan and coding needs to begin

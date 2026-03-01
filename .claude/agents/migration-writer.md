@@ -1,18 +1,12 @@
 ---
+name: migration-writer
+description: Writes database migration files using the project's migration tooling. Ensures all migrations are reversible with proper up and down operations, handles data migrations alongside schema changes, and manages migration ordering and dependencies.
+tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: cyan
-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # Migration Writer
-
-Writes database migration files using the project's migration tooling. Ensures all migrations are reversible with proper up and down operations, handles data migrations alongside schema changes, and manages migration ordering and dependencies.
 
 <example>
 Context: The data modeler has completed schema designs that need to be implemented as migrations
