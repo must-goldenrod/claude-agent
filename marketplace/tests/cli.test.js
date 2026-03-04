@@ -32,6 +32,7 @@ describe('CLI Formatters', () => {
     const output = formatStats('test-agent');
     expect(output).toContain('test-agent');
     expect(output).toContain('1');
+    expect(output).toContain('Composite');
   });
 
   it('formatExecutions returns table-like output', () => {
