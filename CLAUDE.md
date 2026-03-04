@@ -29,6 +29,12 @@ Claude Code 서브에이전트 시스템을 연구하고, 구조화된 멀티에
 .claude/
   agents/              # 68개 에이전트 정의 파일
   skills/orchestrator/  # 오케스트레이터 스킬
+  hooks/               # Claude Code hooks (에이전트 추적)
+  settings.json        # Hook 등록 설정
+marketplace/           # 에이전트 성능 추적 시스템 (MVP)
+  src/                 # 핵심 모듈 (db, tracker, validator, cli)
+  tests/               # 테스트 (vitest)
+  bin/                 # CLI 엔트리포인트
 research/              # 서브에이전트 시스템 연구 자료
 agents/
   schemas/             # 공통 출력 포맷 스키마
@@ -38,6 +44,16 @@ catalog/               # 에이전트 인벤토리
 docs/plans/            # 설계 문서 및 구현 계획
 output/                # 파이프라인 실행 결과 (gitignore)
 ```
+
+## Agent Marketplace (MVP)
+
+`marketplace/` 디렉토리에 에이전트 성능 추적 시스템.
+
+- PostToolUse Hook이 Agent 도구 호출을 자동 캡처 → SQLite에 저장
+- 스키마 검증 점수 자동 산출 (0.0~1.0)
+- CLI: `node marketplace/bin/agent-tracker.js stats <agent-id>`
+- CLI: `node marketplace/bin/agent-tracker.js agents` (전체 에이전트 목록)
+- DB 위치: `~/.claude/agent-marketplace.db`
 
 ## 규칙
 
