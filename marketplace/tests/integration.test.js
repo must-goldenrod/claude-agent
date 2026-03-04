@@ -2,7 +2,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { createDb, getDb, closeDb } from '../src/db.js';
 import { recordExecution, getAgentStats } from '../src/tracker.js';
 import { shouldTrack, parseHookInput } from '../src/hook-parser.js';
-import { formatStats } from '../src/cli.js';
+import { formatStats, formatCompositeScore, formatEvalReport } from '../src/cli.js';
+import { recordLlmEvaluation, recordUserFeedback, getCompositeScore } from '../src/evaluator.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -104,5 +105,53 @@ describe('Integration: Hook -> Tracker -> CLI', () => {
 
     const total = getDb().prepare('SELECT COUNT(*) as n FROM executions').get();
     expect(total.n).toBe(9);
+  });
+
+  it('full evaluation pipeline: schema + llm + user -> composite', () => {
+    const execId = recordExecution({
+      agentId: 'eval-test-agent',
+      model: 'sonnet',
+      output: JSON.stringify({
+        agent: 'eval-test-agent', team: 'security', phase: 'implementation',
+        timestamp: '2026-03-04T10:00:00Z', input_summary: 'test',
+        findings: [{ title: 'Bug', detail: 'Found', evidence: 'line 1' }],
+        recommendations: [{ action: 'Fix', priority: 'high', rationale: 'why' }],
+        confidence_score: 0.9, concerns: [], sources: [],
+      }),
+      durationMs: 8000,
+    });
+
+    // Schema eval is auto-recorded (score = 1.0)
+    const preComposite = getCompositeScore(execId);
+    expect(preComposite.score).toBe(1.0);
+    expect(preComposite.hasLlm).toBe(false);
+
+    // Add LLM evaluation
+    recordLlmEvaluation(execId, {
+      relevance: 0.85, depth: 0.75, actionability: 0.9, consistency: 0.8
+    }, 'claude-haiku-4-5-20251001');
+
+    const midComposite = getCompositeScore(execId);
+    expect(midComposite.hasLlm).toBe(true);
+    expect(midComposite.hasUserFeedback).toBe(false);
+    const llmAvg = (0.85 + 0.75 + 0.9 + 0.8) / 4;
+    expect(midComposite.score).toBeCloseTo(1.0 * 0.3 + llmAvg * 0.7, 2);
+
+    // Add user feedback
+    recordUserFeedback(execId, 0.8, 'Good but could be deeper');
+
+    const finalComposite = getCompositeScore(execId);
+    expect(finalComposite.hasUserFeedback).toBe(true);
+    expect(finalComposite.score).toBeCloseTo(1.0 * 0.2 + llmAvg * 0.4 + 0.8 * 0.4, 2);
+
+    // CLI can display
+    const scoreDisplay = formatCompositeScore(execId);
+    expect(scoreDisplay).toContain('Schema');
+    expect(scoreDisplay).toContain('LLM');
+    expect(scoreDisplay).toContain('User');
+
+    const report = formatEvalReport('eval-test-agent');
+    expect(report).toContain('eval-test-agent');
+    expect(report).toContain('Avg Composite');
   });
 });

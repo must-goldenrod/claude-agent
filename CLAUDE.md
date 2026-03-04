@@ -45,15 +45,23 @@ docs/plans/            # 설계 문서 및 구현 계획
 output/                # 파이프라인 실행 결과 (gitignore)
 ```
 
-## Agent Marketplace (MVP)
+## Agent Marketplace
 
-`marketplace/` 디렉토리에 에이전트 성능 추적 시스템.
+`marketplace/` 디렉토리에 에이전트 성능 추적 및 평가 시스템.
 
 - PostToolUse Hook이 Agent 도구 호출을 자동 캡처 → SQLite에 저장
-- 스키마 검증 점수 자동 산출 (0.0~1.0)
-- CLI: `node marketplace/bin/agent-tracker.js stats <agent-id>`
-- CLI: `node marketplace/bin/agent-tracker.js agents` (전체 에이전트 목록)
+- 3단계 품질 평가: 스키마 검증 (자동) + LLM 평가 (haiku) + 사용자 피드백
+- 종합 스코어: schema(0.2) + llm(0.4) + user(0.4) 가중 평균
 - DB 위치: `~/.claude/agent-marketplace.db`
+
+CLI 명령어:
+- `node marketplace/bin/agent-tracker.js agents` — 전체 에이전트 목록
+- `node marketplace/bin/agent-tracker.js stats <agent-id>` — 에이전트 통계
+- `node marketplace/bin/agent-tracker.js list <agent-id>` — 실행 기록
+- `node marketplace/bin/agent-tracker.js eval llm <agent-id>` — LLM 평가 실행
+- `node marketplace/bin/agent-tracker.js eval rate <exec-id> -s 0.8` — 사용자 피드백
+- `node marketplace/bin/agent-tracker.js eval report <agent-id>` — 평가 리포트
+- `node marketplace/bin/agent-tracker.js eval score <exec-id>` — 종합 스코어
 
 ## 규칙
 
