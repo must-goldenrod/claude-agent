@@ -8,6 +8,7 @@ import { evaluateAgentBatch } from '../src/llm-eval.js';
 import { installAgent, exportAgent } from '../src/installer.js';
 import { loadRegistry, saveRegistry, registerAgent, searchAgents, listAllAgents } from '../src/registry.js';
 import { parseFrontmatter, computeContentHash } from '../src/packager.js';
+import { bulkPublish } from '../src/bulk-publish.js';
 import path from 'path';
 import fs from 'fs';
 
@@ -190,6 +191,19 @@ marketCmd
       `${a.name} | ${a.latest} | ${(a.tags || []).join(',')} | ${(a.description || '').slice(0, 50)}`
     );
     console.log([header, sep, ...rows].join('\n'));
+  });
+
+marketCmd
+  .command('bulk-publish <agents-dir>')
+  .description('Publish all agents from a directory')
+  .option('-v, --version <version>', 'Version for all agents', '0.1.0')
+  .option('-a, --author <name>', 'Author name', 'unknown')
+  .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
+  .action((agentsDir, opts) => {
+    const results = bulkPublish(path.resolve(agentsDir), opts.registry, {
+      version: opts.version, author: opts.author,
+    });
+    console.log(`Published: ${results.published}, Skipped: ${results.skipped}, Errors: ${results.errors}`);
   });
 
 program.parse();
