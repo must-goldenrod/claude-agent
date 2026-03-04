@@ -4,6 +4,9 @@ import { recordExecution, getAgentStats } from '../src/tracker.js';
 import { shouldTrack, parseHookInput } from '../src/hook-parser.js';
 import { formatStats, formatCompositeScore, formatEvalReport } from '../src/cli.js';
 import { recordLlmEvaluation, recordUserFeedback, getCompositeScore } from '../src/evaluator.js';
+import { exportAgent, installAgent } from '../src/installer.js';
+import { loadRegistry, saveRegistry, registerAgent, searchAgents } from '../src/registry.js';
+import { parseFrontmatter, computeContentHash } from '../src/packager.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -153,5 +156,48 @@ describe('Integration: Hook -> Tracker -> CLI', () => {
     const report = formatEvalReport('eval-test-agent');
     expect(report).toContain('eval-test-agent');
     expect(report).toContain('Avg Composite');
+  });
+
+  it('registry pipeline: export -> register -> search -> install', () => {
+    const tmpDir = path.join(import.meta.dirname, 'test-registry-int-' + Date.now());
+    const registryDir = path.join(tmpDir, 'registry');
+    const installDir = path.join(tmpDir, 'install');
+    const agentFile = path.join(tmpDir, 'agent.md');
+
+    fs.mkdirSync(tmpDir, { recursive: true });
+    fs.writeFileSync(agentFile, `---
+name: int-test-agent
+description: Integration test agent
+model: sonnet
+---
+
+# Int Test Agent
+
+You are a test agent.`);
+
+    // Export
+    const outputDir = path.join(registryDir, 'agents', 'int-test-agent');
+    const exportResult = exportAgent(agentFile, outputDir, { version: '1.0.0', author: 'tester', tags: ['test'] });
+    expect(exportResult.success).toBe(true);
+
+    // Register
+    const registryPath = path.join(registryDir, 'registry.json');
+    const reg = loadRegistry(registryPath);
+    const content = fs.readFileSync(agentFile, 'utf8');
+    registerAgent(reg, exportResult.meta, computeContentHash(content));
+    saveRegistry(reg, registryPath);
+
+    // Search
+    const results = searchAgents(reg, 'int-test');
+    expect(results).toHaveLength(1);
+    expect(results[0].name).toBe('int-test-agent');
+
+    // Install
+    const installResult = installAgent('int-test-agent', registryDir, installDir);
+    expect(installResult.success).toBe(true);
+    expect(fs.existsSync(path.join(installDir, 'int-test-agent.md'))).toBe(true);
+
+    // Cleanup
+    fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 });

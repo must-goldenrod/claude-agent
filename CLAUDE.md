@@ -62,6 +62,11 @@ CLI 명령어:
 - `node marketplace/bin/agent-tracker.js eval rate <exec-id> -s 0.8` — 사용자 피드백
 - `node marketplace/bin/agent-tracker.js eval report <agent-id>` — 평가 리포트
 - `node marketplace/bin/agent-tracker.js eval score <exec-id>` — 종합 스코어
+- `node marketplace/bin/agent-tracker.js market search <query>` — 에이전트 검색
+- `node marketplace/bin/agent-tracker.js market install <name>` — 에이전트 설치
+- `node marketplace/bin/agent-tracker.js market publish <file>` — 에이전트 공개
+- `node marketplace/bin/agent-tracker.js market bulk-publish <dir>` — 일괄 공개
+- `node marketplace/bin/agent-tracker.js market list` — 레지스트리 목록
 
 ## 규칙
 
