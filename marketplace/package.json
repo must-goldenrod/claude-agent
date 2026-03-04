@@ -10,6 +10,7 @@
     "agent-tracker": "./bin/agent-tracker.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "better-sqlite3": "^12.6.2",
     "commander": "^14.0.3"
   },
