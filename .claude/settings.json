@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tool": "Agent"
+        },
+        "command": "node .claude/hooks/track-agent-execution.js"
+      }
+    ]
+  }
+}
