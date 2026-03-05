@@ -1,5 +1,13 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": {
+          "tool": "Agent"
+        },
+        "command": "node .claude/hooks/pre-agent-timing.js"
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": {
