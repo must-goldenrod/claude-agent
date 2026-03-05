@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SearchBar from '../../components/SearchBar.tsx';
+
+let agents = [];
+try {
+  agents = (await import('../../data/agents.json')).default;
+} catch {}
+---
+
+<BaseLayout title="Agents">
+  <h1 class="text-2xl font-bold mb-6">Agent Directory</h1>
+  <SearchBar client:load agents={agents} />
+</BaseLayout>

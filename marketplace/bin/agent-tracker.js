@@ -10,6 +10,7 @@ import { loadRegistry, saveRegistry, registerAgent, searchAgents, listAllAgents 
 import { parseFrontmatter, computeContentHash } from '../src/packager.js';
 import { bulkPublish } from '../src/bulk-publish.js';
 import { formatProfile, formatProfileComparison, formatTeamProfiles } from '../src/cli-profile.js';
+import { exportAllData } from '../src/data-export.js';
 import { refreshProfile, refreshAllProfiles } from '../src/profiler.js';
 import path from 'path';
 import fs from 'fs';
@@ -277,6 +278,22 @@ profileCmd
       composite: pubRow.publisher_composite,
     };
     console.log(formatProfileComparison(agentId, publisherProfile));
+  });
+
+program
+  .command('export-data')
+  .description('Export all data as JSON files for web UI')
+  .option('-o, --output <dir>', 'Output directory', 'web/src/data')
+  .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
+  .action((opts) => {
+    createDb();
+    const registryPath = path.join(opts.registry, 'registry.json');
+    const result = exportAllData(registryPath, opts.output);
+    console.log(`Exported data to ${opts.output}:`);
+    console.log(`  Agents: ${result.agentCount}`);
+    console.log(`  Teams: ${result.teamCount}`);
+    console.log(`  Leaderboard entries: ${result.leaderboardCount}`);
+    console.log(`  Detail files: ${result.detailCount}`);
   });
 
 program.parse();

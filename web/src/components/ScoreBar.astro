@@ -1,0 +1,18 @@
+---
+interface Props {
+  label: string;
+  score: number;
+  maxScore?: number;
+}
+const { label, score, maxScore = 1 } = Astro.props;
+const pct = Math.round((score / maxScore) * 100);
+const color = score >= 0.8 ? 'bg-green-500' : score >= 0.6 ? 'bg-yellow-500' : 'bg-red-500';
+---
+
+<div class="flex items-center gap-3">
+  <span class="text-sm text-surface-700 w-24 text-right">{label}</span>
+  <div class="flex-1 bg-surface-200 rounded-full h-3 overflow-hidden">
+    <div class={`h-full rounded-full ${color}`} style={`width: ${pct}%`}></div>
+  </div>
+  <span class="text-sm font-mono text-surface-800 w-12">{score.toFixed(2)}</span>
+</div>
