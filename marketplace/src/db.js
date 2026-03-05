@@ -28,6 +28,11 @@ CREATE TABLE IF NOT EXISTS executions (
   output_schema_valid INTEGER,
   schema_score REAL,
   duration_ms INTEGER,
+  output_length INTEGER,
+  token_estimate INTEGER,
+  call_order INTEGER,
+  project_type TEXT,
+  model_version TEXT,
   timestamp TEXT DEFAULT (datetime('now')),
   metadata TEXT
 );
@@ -53,15 +58,58 @@ CREATE TABLE IF NOT EXISTS agent_versions (
   PRIMARY KEY (agent_id, version)
 );
 
+CREATE TABLE IF NOT EXISTS agent_profiles (
+  agent_id TEXT PRIMARY KEY,
+  quality_score REAL,
+  efficiency_score REAL,
+  reliability_score REAL,
+  impact_score REAL,
+  composite_score REAL,
+  sample_size INTEGER,
+  period_start TEXT,
+  period_end TEXT,
+  context TEXT,
+  calculated_at TEXT DEFAULT (datetime('now')),
+  quality_details TEXT,
+  efficiency_details TEXT,
+  reliability_details TEXT,
+  impact_details TEXT
+);
+
+CREATE TABLE IF NOT EXISTS profile_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  agent_id TEXT NOT NULL,
+  quality_score REAL,
+  efficiency_score REAL,
+  reliability_score REAL,
+  impact_score REAL,
+  composite_score REAL,
+  sample_size INTEGER,
+  snapshot_date TEXT DEFAULT (datetime('now')),
+  context TEXT
+);
+
 CREATE INDEX IF NOT EXISTS idx_executions_agent ON executions(agent_id);
 CREATE INDEX IF NOT EXISTS idx_executions_timestamp ON executions(timestamp);
 CREATE INDEX IF NOT EXISTS idx_evaluations_execution ON evaluations(execution_id);
+CREATE INDEX IF NOT EXISTS idx_profile_history_agent ON profile_history(agent_id);
 `;
 
 export function createDb(dbPath = DEFAULT_DB_PATH) {
   db = new Database(dbPath);
   db.pragma('journal_mode = WAL');
   db.exec(SCHEMA);
+
+  // Migrate existing DBs: add columns that may not exist
+  const cols = db.prepare("PRAGMA table_info(executions)").all().map(c => c.name);
+  if (!cols.includes('output_length')) {
+    db.exec('ALTER TABLE executions ADD COLUMN output_length INTEGER');
+    db.exec('ALTER TABLE executions ADD COLUMN token_estimate INTEGER');
+    db.exec('ALTER TABLE executions ADD COLUMN call_order INTEGER');
+    db.exec('ALTER TABLE executions ADD COLUMN project_type TEXT');
+    db.exec('ALTER TABLE executions ADD COLUMN model_version TEXT');
+  }
+
   return db;
 }
 
