@@ -49,9 +49,12 @@ output/                # 파이프라인 실행 결과 (gitignore)
 
 `marketplace/` 디렉토리에 에이전트 성능 추적 및 평가 시스템.
 
-- PostToolUse Hook이 Agent 도구 호출을 자동 캡처 → SQLite에 저장
-- 3단계 품질 평가: 스키마 검증 (자동) + LLM 평가 (haiku) + 사용자 피드백
-- 종합 스코어: schema(0.2) + llm(0.4) + user(0.4) 가중 평균
+- PreToolUse + PostToolUse Hook이 Agent 도구 호출을 자동 캡처 → SQLite에 저장
+- 4축 복합 평가: 품질(0.35) + 효율(0.25) + 신뢰(0.25) + 기여(0.15)
+- 품질 평가: 스키마 검증 (자동) + LLM 평가 (haiku) + 사용자 피드백
+- 효율 평가: 실행 시간, 토큰 추정량, 재시도율 (Hook 자동 수집)
+- 신뢰 평가: 스키마 준수율, 실패율, 출력 안정성 (자동 계산)
+- 기여 평가: 사용 빈도, 파이프라인 위치 가중치 (자동 계산)
 - DB 위치: `~/.claude/agent-marketplace.db`
 
 CLI 명령어:
@@ -67,6 +70,10 @@ CLI 명령어:
 - `node marketplace/bin/agent-tracker.js market publish <file>` — 에이전트 공개
 - `node marketplace/bin/agent-tracker.js market bulk-publish <dir>` — 일괄 공개
 - `node marketplace/bin/agent-tracker.js market list` — 레지스트리 목록
+- `node marketplace/bin/agent-tracker.js profile show <agent-id>` — 4축 성능 프로필
+- `node marketplace/bin/agent-tracker.js profile show <agent-id> --json` — JSON 출력
+- `node marketplace/bin/agent-tracker.js profile refresh [agent-id]` — 프로필 재계산 (전체 또는 특정)
+- `node marketplace/bin/agent-tracker.js profile team` — 전체 에이전트 프로필 순위
 
 ## 규칙
 
