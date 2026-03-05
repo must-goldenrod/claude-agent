@@ -231,7 +231,7 @@ profileCmd
       const results = refreshAllProfiles();
       console.log(`Refreshed ${results.length} agent profiles.`);
       for (const r of results) {
-        console.log(`  ${r.agentId}: ${r.composite.toFixed(2)}`);
+        console.log(`  ${r.agentId}: ${r.profile.composite.toFixed(2)}`);
       }
     }
   });

@@ -210,6 +210,13 @@ export function calculateProfile(agentId) {
     impact.score * WEIGHTS.impact
   ));
 
+  // Build environment context
+  const projectTypes = [...new Set(executions.map(e => e.project_type).filter(Boolean))];
+  const models = executions.map(e => e.model_version).filter(Boolean);
+  const modelCounts = {};
+  for (const m of models) modelCounts[m] = (modelCounts[m] || 0) + 1;
+  const dominantModel = Object.entries(modelCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'unknown';
+
   return {
     agentId,
     quality: quality.score,
@@ -218,6 +225,11 @@ export function calculateProfile(agentId) {
     impact: impact.score,
     composite,
     sampleSize: executions.length,
+    context: {
+      projectTypes,
+      model: dominantModel,
+      domain: detectDomain(agentId),
+    },
     qualityDetails: quality.details,
     efficiencyDetails: efficiency.details,
     reliabilityDetails: reliability.details,
@@ -290,7 +302,27 @@ export function refreshAllProfiles() {
   const agents = db.prepare('SELECT DISTINCT agent_id FROM executions').all();
   const results = [];
   for (const { agent_id } of agents) {
-    results.push(refreshProfile(agent_id));
+    results.push({ agentId: agent_id, profile: refreshProfile(agent_id) });
   }
   return results;
+}
+
+function detectDomain(agentId) {
+  const domainMap = {
+    security: ['security', 'audit', 'pentest', 'vulnerability', 'crypto', 'threat', 'incident', 'compliance', 'container', 'network', 'mobile', 'smart-contract', 'supply-chain', 'iac-security', 'secrets', 'dependency'],
+    code: ['code', 'frontend', 'backend', 'refactor', 'architect'],
+    research: ['research', 'web-researcher', 'market', 'tech-researcher', 'trend', 'competitor'],
+    testing: ['test', 'unit-test', 'integration-test'],
+    devops: ['devops', 'git', 'release', 'hotfix', 'pr-manager', 'ci-cd'],
+    docs: ['docs', 'api-doc', 'guide'],
+    infra: ['infra', 'containerizer', 'terraform'],
+    quality: ['quality', 'fact-check', 'logic', 'bias', 'review'],
+    debate: ['debate', 'optimist', 'pessimist', 'realist', 'innovator', 'conservative', 'devil', 'moderator'],
+    synthesis: ['synthesis', 'integrator', 'strategist', 'report', 'execution', 'risk', 'metrics', 'change'],
+    database: ['database', 'data-model', 'migration'],
+  };
+  for (const [domain, keywords] of Object.entries(domainMap)) {
+    if (keywords.some(k => agentId.includes(k))) return domain;
+  }
+  return 'general';
 }

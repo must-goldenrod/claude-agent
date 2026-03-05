@@ -25,8 +25,13 @@ export function formatProfile(agentId, opts = {}) {
     '  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500',
     `  Composite   ${bar(profile.composite)} ${profile.composite.toFixed(2)}`,
     '',
-    `  Samples: ${profile.sampleSize} executions`,
   ];
+
+  const ctx = profile.context || {};
+  if (ctx.projectTypes?.length) lines.push(`  Projects: ${ctx.projectTypes.join(', ')}`);
+  if (ctx.model && ctx.model !== 'unknown') lines.push(`  Model: ${ctx.model}`);
+  if (ctx.domain) lines.push(`  Domain: ${ctx.domain}`);
+  lines.push(`  Samples: ${profile.sampleSize} executions`);
 
   return lines.join('\n');
 }
