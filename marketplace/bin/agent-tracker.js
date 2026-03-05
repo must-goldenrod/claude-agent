@@ -112,16 +112,23 @@ marketCmd
   .command('search <query>')
   .description('Search for agents in registry')
   .option('-t, --tag <tag>', 'Filter by tag')
+  .option('-s, --min-score <score>', 'Minimum composite score (0-1)')
+  .option('--sort <metric>', 'Sort by metric (composite|quality|efficiency|reliability|impact)')
   .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
   .action((query, opts) => {
     const reg = loadRegistry(path.join(opts.registry, 'registry.json'));
-    const results = searchAgents(reg, query, { tag: opts.tag });
+    const results = searchAgents(reg, query, {
+      tag: opts.tag,
+      minScore: opts.minScore ? parseFloat(opts.minScore) : undefined,
+      sortBy: opts.sort,
+    });
     if (results.length === 0) {
       console.log('No agents found.');
       return;
     }
     for (const r of results) {
-      console.log(`${r.name}@${r.latest} - ${r.description || '(no description)'}`);
+      const score = r.performance?.composite != null ? ` [${r.performance.composite.toFixed(2)}]` : '';
+      console.log(`${r.name}@${r.latest}${score} - ${r.description || '(no description)'}`);
       if (r.tags.length) console.log(`  tags: ${r.tags.join(', ')}`);
     }
   });
@@ -181,19 +188,25 @@ marketCmd
 marketCmd
   .command('list')
   .description('List all agents in registry')
+  .option('-s, --min-score <score>', 'Minimum composite score (0-1)')
+  .option('--sort <metric>', 'Sort by metric (composite|quality|efficiency|reliability|impact)')
   .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
   .action((opts) => {
     const reg = loadRegistry(path.join(opts.registry, 'registry.json'));
-    const agents = listAllAgents(reg);
+    const agents = listAllAgents(reg, {
+      minScore: opts.minScore ? parseFloat(opts.minScore) : undefined,
+      sortBy: opts.sort,
+    });
     if (agents.length === 0) {
       console.log('No agents in registry.');
       return;
     }
-    const header = 'Name | Version | Tags | Description';
-    const sep = '-----|---------|------|------------';
-    const rows = agents.map(a =>
-      `${a.name} | ${a.latest} | ${(a.tags || []).join(',')} | ${(a.description || '').slice(0, 50)}`
-    );
+    const header = 'Name | Version | Score | Tags | Description';
+    const sep = '-----|---------|-------|------|------------';
+    const rows = agents.map(a => {
+      const score = a.performance?.composite != null ? a.performance.composite.toFixed(2) : 'N/A';
+      return `${a.name} | ${a.latest} | ${score} | ${(a.tags || []).join(',')} | ${(a.description || '').slice(0, 50)}`;
+    });
     console.log([header, sep, ...rows].join('\n'));
   });
 
