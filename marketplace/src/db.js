@@ -89,6 +89,19 @@ CREATE TABLE IF NOT EXISTS profile_history (
   context TEXT
 );
 
+CREATE TABLE IF NOT EXISTS publisher_profiles (
+  agent_id TEXT PRIMARY KEY,
+  publisher_quality REAL,
+  publisher_efficiency REAL,
+  publisher_reliability REAL,
+  publisher_impact REAL,
+  publisher_composite REAL,
+  publisher_sample_size INTEGER,
+  publisher_context JSON,
+  installed_at TEXT DEFAULT (datetime('now')),
+  meta_json JSON
+);
+
 CREATE INDEX IF NOT EXISTS idx_executions_agent ON executions(agent_id);
 CREATE INDEX IF NOT EXISTS idx_executions_timestamp ON executions(timestamp);
 CREATE INDEX IF NOT EXISTS idx_evaluations_execution ON evaluations(execution_id);

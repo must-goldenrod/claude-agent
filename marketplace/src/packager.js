@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import { calculateProfile } from './profiler.js';
 
 export function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
@@ -31,6 +32,33 @@ export function buildMeta(frontmatter, overrides = {}) {
     dependencies: [],
     claude_code_version: '>=1.0.0',
   };
+}
+
+export function attachPerformance(meta, agentId) {
+  try {
+    const profile = calculateProfile(agentId);
+    if (profile.sampleSize === 0) return meta;
+
+    meta.performance = {
+      quality: profile.quality,
+      efficiency: profile.efficiency,
+      reliability: profile.reliability,
+      impact: profile.impact,
+      composite: profile.composite,
+      sample_size: profile.sampleSize,
+      context: profile.context,
+      details: {
+        quality: profile.qualityDetails,
+        efficiency: profile.efficiencyDetails,
+        reliability: profile.reliabilityDetails,
+      },
+    };
+    meta.avg_score = profile.composite;
+    meta.total_executions = profile.sampleSize;
+  } catch {
+    // DB not initialized or no data — skip silently
+  }
+  return meta;
 }
 
 export function computeContentHash(content) {

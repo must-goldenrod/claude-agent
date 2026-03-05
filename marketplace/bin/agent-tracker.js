@@ -5,11 +5,11 @@ import { createDb } from '../src/db.js';
 import { formatStats, formatExecutions, formatAllAgents, formatCompositeScore, formatEvalReport } from '../src/cli.js';
 import { recordUserFeedback } from '../src/evaluator.js';
 import { evaluateAgentBatch } from '../src/llm-eval.js';
-import { installAgent, exportAgent } from '../src/installer.js';
+import { installAgent, exportAgent, getPublisherProfile } from '../src/installer.js';
 import { loadRegistry, saveRegistry, registerAgent, searchAgents, listAllAgents } from '../src/registry.js';
 import { parseFrontmatter, computeContentHash } from '../src/packager.js';
 import { bulkPublish } from '../src/bulk-publish.js';
-import { formatProfile, formatTeamProfiles } from '../src/cli-profile.js';
+import { formatProfile, formatProfileComparison, formatTeamProfiles } from '../src/cli-profile.js';
 import { refreshProfile, refreshAllProfiles } from '../src/profiler.js';
 import path from 'path';
 import fs from 'fs';
@@ -132,6 +132,7 @@ marketCmd
   .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
   .option('-d, --dir <path>', 'Target agents directory', DEFAULT_AGENTS)
   .action((agentName, opts) => {
+    createDb();
     const result = installAgent(agentName, opts.registry, opts.dir);
     if (result.success) {
       console.log(`Installed ${agentName} -> ${result.path}`);
@@ -150,6 +151,7 @@ marketCmd
   .option('-o, --output <dir>', 'Output directory')
   .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
   .action((agentFile, opts) => {
+    createDb();
     const tags = opts.tags ? opts.tags.split(',').map(t => t.trim()) : [];
     const agentPath = path.resolve(agentFile);
     const content = fs.readFileSync(agentPath, 'utf8');
@@ -242,6 +244,26 @@ profileCmd
   .action(() => {
     createDb();
     console.log(formatTeamProfiles());
+  });
+
+profileCmd
+  .command('compare <agent-id>')
+  .description('Compare local profile vs publisher profile')
+  .action((agentId) => {
+    createDb();
+    const pubRow = getPublisherProfile(agentId);
+    if (!pubRow) {
+      console.log(`No publisher profile found for ${agentId}. Install from registry first.`);
+      return;
+    }
+    const publisherProfile = {
+      quality: pubRow.publisher_quality,
+      efficiency: pubRow.publisher_efficiency,
+      reliability: pubRow.publisher_reliability,
+      impact: pubRow.publisher_impact,
+      composite: pubRow.publisher_composite,
+    };
+    console.log(formatProfileComparison(agentId, publisherProfile));
   });
 
 program.parse();
