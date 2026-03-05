@@ -1,0 +1,16 @@
+{
+  "name": "database-lead",
+  "display_name": "Database Lead",
+  "version": "1.0.0",
+  "description": "Leads the Database Team by planning schema design, migration strategy, and data modeling tasks based on architecture decisions and data requirements. Reviews member outputs for normalization, indexing strategy, and query performance implications. Operates in two distinct modes.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "9ccc5d9610c50f63"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "optimist",
+  "display_name": "Optimist",
+  "version": "1.0.0",
+  "description": "Debate team member arguing FOR the project or approach with evidence-based optimism, focusing on advantages, growth potential, and aggressive strategies.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "eca9b8c74a35a251"
+}

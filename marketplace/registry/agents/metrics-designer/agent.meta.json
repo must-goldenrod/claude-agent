@@ -1,0 +1,16 @@
+{
+  "name": "metrics-designer",
+  "display_name": "Metrics Designer",
+  "version": "1.0.0",
+  "description": "Defines KPIs, OKRs, and monitoring specifications aligned with strategic goals. Produces a measurement framework with success criteria, thresholds, and dashboard specifications to track initiative outcomes.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "d8652f3c1637a6fa"
+}

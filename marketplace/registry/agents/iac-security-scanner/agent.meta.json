@@ -1,0 +1,16 @@
+{
+  "name": "iac-security-scanner",
+  "display_name": "Iac Security Scanner",
+  "version": "1.0.0",
+  "description": "Scans Infrastructure-as-Code files for security misconfigurations across Terraform, Kubernetes, Dockerfile, CloudFormation, and Helm charts. Checks against CIS benchmarks for public cloud resources, overly permissive IAM, unencrypted storage, and insecure container configurations.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "f875fdb359037e66"
+}

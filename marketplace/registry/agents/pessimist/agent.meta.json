@@ -1,0 +1,16 @@
+{
+  "name": "pessimist",
+  "display_name": "Pessimist",
+  "version": "1.0.0",
+  "description": "Debate team member arguing AGAINST or highlighting risks, failure scenarios, and limitations of the proposal under debate.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "6c83f4d9f4aaab2b"
+}

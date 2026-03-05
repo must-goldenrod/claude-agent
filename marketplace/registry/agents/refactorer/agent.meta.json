@@ -1,0 +1,16 @@
+{
+  "name": "refactorer",
+  "display_name": "Refactorer",
+  "version": "1.0.0",
+  "description": "Handles targeted technical debt reduction, code cleanup, and pattern extraction. Improves code readability, reduces duplication, and extracts common patterns into reusable modules. Acts only on specific refactoring tasks assigned by the code-lead, never making unsolicited changes.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "c3d63a72fc7c8491"
+}

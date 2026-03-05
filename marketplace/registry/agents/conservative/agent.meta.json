@@ -1,0 +1,16 @@
+{
+  "name": "conservative",
+  "display_name": "Conservative",
+  "version": "1.0.0",
+  "description": "Debate team member emphasizing stability, proven approaches, backward compatibility, and long-term maintainability over novelty.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "f13a04cf404ee358"
+}

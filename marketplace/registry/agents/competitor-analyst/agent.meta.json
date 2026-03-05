@@ -1,0 +1,16 @@
+{
+  "name": "competitor-analyst",
+  "display_name": "Competitor Analyst",
+  "version": "1.0.0",
+  "description": "Analyzes the competitive landscape including feature comparisons, pricing models, market positioning, SWOT analysis, and competitive moat assessment. Produces actionable intelligence for differentiation strategy.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "a026ca8a5a526288"
+}

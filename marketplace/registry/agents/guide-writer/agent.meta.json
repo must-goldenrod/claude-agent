@@ -1,0 +1,16 @@
+{
+  "name": "guide-writer",
+  "display_name": "Guide Writer",
+  "version": "1.0.0",
+  "description": "Writes user-facing narrative documentation including README files, getting started guides, configuration references, deployment guides, and troubleshooting FAQs. Adapts writing style to the target audience -- technical developers vs end-users.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "233918872fba4daf"
+}

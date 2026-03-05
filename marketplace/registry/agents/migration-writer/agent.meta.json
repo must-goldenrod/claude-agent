@@ -1,0 +1,16 @@
+{
+  "name": "migration-writer",
+  "display_name": "Migration Writer",
+  "version": "1.0.0",
+  "description": "Writes database migration files using the project's migration tooling. Ensures all migrations are reversible with proper up and down operations, handles data migrations alongside schema changes, and manages migration ordering and dependencies.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "2a98c2f4eff8e5c6"
+}

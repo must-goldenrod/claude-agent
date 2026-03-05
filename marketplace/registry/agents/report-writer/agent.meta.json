@@ -1,0 +1,16 @@
+{
+  "name": "report-writer",
+  "display_name": "Report Writer",
+  "version": "1.0.0",
+  "description": "Generates human-readable decision documents from synthesis team findings. Produces executive summaries, detailed findings organized by topic, and appendices with supporting data in a clear, professional writing style.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "c9c22f284962a7f2"
+}

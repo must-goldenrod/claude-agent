@@ -1,0 +1,16 @@
+{
+  "name": "hotfix-handler",
+  "display_name": "Hotfix Handler",
+  "version": "1.0.0",
+  "description": "Manages emergency fix workflows: creating hotfix branches from main/production, scoping the fix, ensuring the hotfix is merged back to both main and develop, and bumping the patch version. Prioritizes speed while maintaining correctness.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "ec37cc48b9106d70"
+}

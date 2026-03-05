@@ -1,0 +1,16 @@
+{
+  "name": "research-lead",
+  "display_name": "Research Lead",
+  "version": "1.0.0",
+  "description": "Leads the Research Team by assigning tasks to research members and synthesizing their collective findings into a unified team report. Operates in two distinct modes depending on the phase of work.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "b6d4a349ff36b442"
+}

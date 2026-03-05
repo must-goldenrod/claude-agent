@@ -1,0 +1,16 @@
+{
+  "name": "code-architect",
+  "display_name": "Code Architect",
+  "version": "1.0.0",
+  "description": "Translates architecture decisions into concrete file and module structures. Scaffolds project directories, creates boilerplate code, defines interfaces and type contracts, and sets up project configuration files. Acts as the foundation layer that all other code team members build upon.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "2dfb78dc479110c6"
+}

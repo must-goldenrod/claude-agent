@@ -1,0 +1,16 @@
+{
+  "name": "data-modeler",
+  "display_name": "Data Modeler",
+  "version": "1.0.0",
+  "description": "Designs database schemas including entity definitions, relationships, indexes, constraints, and data types. Handles both SQL and NoSQL modeling, normalization decisions, and index design optimized for expected query patterns.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "fcab99e57c4c776d"
+}

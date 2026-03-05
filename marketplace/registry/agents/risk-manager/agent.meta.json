@@ -1,0 +1,16 @@
+{
+  "name": "risk-manager",
+  "display_name": "Risk Manager",
+  "version": "1.0.0",
+  "description": "Compiles a comprehensive risk registry from research and debate findings. Assesses each risk by likelihood and impact, categorizes risks, defines mitigation strategies, and produces contingency plans for the highest-severity risks.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "750caca418728ad5"
+}

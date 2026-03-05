@@ -1,0 +1,16 @@
+{
+  "name": "test-runner",
+  "display_name": "Test Runner",
+  "version": "1.0.0",
+  "description": "Executes test suites, parses results, categorizes failures, and generates coverage reports. Does not write tests -- only runs existing tests and reports results. Manages the test-fix-retest cycle reporting.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "4df0a8092720f5e1"
+}

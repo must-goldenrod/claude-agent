@@ -1,0 +1,16 @@
+{
+  "name": "web-researcher",
+  "display_name": "Web Researcher",
+  "version": "1.0.0",
+  "description": "Searches the web for documentation, technical blogs, standards, and reference implementations relevant to the assigned research task. Produces structured findings with source attribution and reliability assessment.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "8d08915f8d48b0dd"
+}

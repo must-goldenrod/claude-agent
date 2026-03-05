@@ -1,0 +1,16 @@
+{
+  "name": "infra-coder",
+  "display_name": "Infra Coder",
+  "version": "1.0.0",
+  "description": "Writes Infrastructure as Code configurations including Terraform modules, Kubernetes manifests, CI/CD pipeline definitions, and monitoring/alerting setups. Produces deployment-ready infrastructure code but never executes apply or deploy commands -- those require human approval.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "39f88f79ba9a9c9e"
+}

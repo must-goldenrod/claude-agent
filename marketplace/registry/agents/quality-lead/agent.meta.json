@@ -1,0 +1,16 @@
+{
+  "name": "quality-lead",
+  "display_name": "Quality Lead",
+  "version": "1.0.0",
+  "description": "Leads the Quality Team by defining review criteria, assigning review focus areas, and making the final Go/No-Go decision on phase outputs. Operates in two modes: setup (before reviews) and verdict (after reviews).",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "8cd54cfb90ec3659"
+}

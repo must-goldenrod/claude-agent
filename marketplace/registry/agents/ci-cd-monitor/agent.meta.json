@@ -1,0 +1,16 @@
+{
+  "name": "ci-cd-monitor",
+  "display_name": "Ci Cd Monitor",
+  "version": "1.0.0",
+  "description": "Monitors CI/CD pipeline runs, analyzes build and test failures, manages deployment stages, makes rollback recommendations, and optimizes pipeline performance. Uses the gh CLI for GitHub Actions workflow monitoring.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "5629154d86dff13b"
+}

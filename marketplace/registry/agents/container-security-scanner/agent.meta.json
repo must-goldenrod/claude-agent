@@ -1,0 +1,16 @@
+{
+  "name": "container-security-scanner",
+  "display_name": "Container Security Scanner",
+  "version": "1.0.0",
+  "description": "Analyzes container security across Dockerfile best practices, docker-compose configurations, Kubernetes Pod Security Standards, and container secret management. Checks for privileged containers, host mounts, non-root enforcement, and secure secret injection patterns.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "76e3dbf00f7008d1"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "network-attack-reviewer",
+  "display_name": "Network Attack Reviewer",
+  "version": "1.0.0",
+  "description": "Performs deep analysis of network-layer attack vectors including SSRF (with DNS rebinding and bypass patterns), HTTP request smuggling, open redirects, and WebSocket security. Focuses on attack patterns that require nuanced understanding beyond basic OWASP checks.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "1191f154eb4f0cb9"
+}

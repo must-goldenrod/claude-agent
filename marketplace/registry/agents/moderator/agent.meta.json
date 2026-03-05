@@ -1,0 +1,16 @@
+{
+  "name": "moderator",
+  "display_name": "Moderator",
+  "version": "1.0.0",
+  "description": "Neutral debate moderator who synthesizes all 3 rounds of debate into a fair, comprehensive summary. Runs AFTER all debate rounds are complete -- not a debater.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "f2871ebe7de8287a"
+}

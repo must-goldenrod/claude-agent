@@ -1,0 +1,16 @@
+{
+  "name": "compliance-checker",
+  "display_name": "Compliance Checker",
+  "version": "1.0.0",
+  "description": "Maps codebase practices against regulatory compliance frameworks including GDPR, PCI DSS, HIPAA, and SOC 2. Identifies control gaps, missing consent mechanisms, inadequate data retention policies, encryption requirements, and audit logging deficiencies. Produces compliance evidence mapping with gap analysis.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "859e8b6379afe541"
+}

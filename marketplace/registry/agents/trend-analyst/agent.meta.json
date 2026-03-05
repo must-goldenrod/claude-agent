@@ -1,0 +1,16 @@
+{
+  "name": "trend-analyst",
+  "display_name": "Trend Analyst",
+  "version": "1.0.0",
+  "description": "Identifies emerging technology trends, regulatory landscape changes, industry adoption curves, and future-proofing considerations relevant to the project domain. Provides forward-looking intelligence to inform strategic decisions.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "05629167c175187f"
+}

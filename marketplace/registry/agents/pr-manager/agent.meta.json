@@ -1,0 +1,16 @@
+{
+  "name": "pr-manager",
+  "display_name": "Pr Manager",
+  "version": "1.0.0",
+  "description": "Manages the pull request lifecycle: creating PRs with structured descriptions, setting labels and reviewers, running pre-PR checks, determining merge strategy, and handling feedback iteration. Uses the gh CLI for all GitHub operations.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "b3214ca842a06c30"
+}

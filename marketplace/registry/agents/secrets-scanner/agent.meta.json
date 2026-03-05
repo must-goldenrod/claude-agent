@@ -1,0 +1,16 @@
+{
+  "name": "secrets-scanner",
+  "display_name": "Secrets Scanner",
+  "version": "1.0.0",
+  "description": "Scans codebase and git history for exposed secrets including API keys, passwords, tokens, certificates, and connection strings. Uses entropy analysis to detect high-entropy strings that may be secrets. Verifies .gitignore coverage for sensitive files.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "sonnet",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "86afac58a91ad3e8"
+}

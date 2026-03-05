@@ -1,0 +1,16 @@
+{
+  "name": "smart-contract-auditor",
+  "display_name": "Smart Contract Auditor",
+  "version": "1.0.0",
+  "description": "Audits smart contracts against OWASP Smart Contract Top 10 and common DeFi attack patterns. Analyzes for reentrancy, integer overflow, front-running, flash loan attacks, proxy contract security, centralization risks, and access control vulnerabilities in Solidity, Vyper, and other blockchain languages.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "cde599e36eb8e8d6"
+}

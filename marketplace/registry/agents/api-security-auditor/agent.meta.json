@@ -1,0 +1,16 @@
+{
+  "name": "api-security-auditor",
+  "display_name": "Api Security Auditor",
+  "version": "1.0.0",
+  "description": "Performs deep API security review based on OWASP API Security Top 10 (2023). Analyzes authentication patterns (JWT, OAuth, OIDC), authorization models (RBAC, ABAC), mass assignment, excessive data exposure, and GraphQL-specific vulnerabilities including introspection and query depth attacks.",
+  "author": "mufin",
+  "license": "MIT",
+  "tags": [],
+  "team_compatibility": [],
+  "model_recommendation": "opus",
+  "avg_score": null,
+  "total_executions": 0,
+  "dependencies": [],
+  "claude_code_version": ">=1.0.0",
+  "content_hash": "af98884fcc4c6154"
+}
