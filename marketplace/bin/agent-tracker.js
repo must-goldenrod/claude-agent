@@ -9,6 +9,8 @@ import { installAgent, exportAgent } from '../src/installer.js';
 import { loadRegistry, saveRegistry, registerAgent, searchAgents, listAllAgents } from '../src/registry.js';
 import { parseFrontmatter, computeContentHash } from '../src/packager.js';
 import { bulkPublish } from '../src/bulk-publish.js';
+import { formatProfile, formatTeamProfiles } from '../src/cli-profile.js';
+import { refreshProfile, refreshAllProfiles } from '../src/profiler.js';
 import path from 'path';
 import fs from 'fs';
 
@@ -204,6 +206,42 @@ marketCmd
       version: opts.version, author: opts.author,
     });
     console.log(`Published: ${results.published}, Skipped: ${results.skipped}, Errors: ${results.errors}`);
+  });
+
+const profileCmd = program.command('profile').description('Agent performance profiles');
+
+profileCmd
+  .command('show <agent-id>')
+  .description('Show 4-axis performance profile')
+  .option('--json', 'Output as JSON')
+  .action((agentId, opts) => {
+    createDb();
+    console.log(formatProfile(agentId, { json: opts.json }));
+  });
+
+profileCmd
+  .command('refresh [agent-id]')
+  .description('Recalculate and cache profile')
+  .action((agentId) => {
+    createDb();
+    if (agentId) {
+      const profile = refreshProfile(agentId);
+      console.log(`Refreshed ${agentId}: composite ${profile.composite.toFixed(2)}`);
+    } else {
+      const results = refreshAllProfiles();
+      console.log(`Refreshed ${results.length} agent profiles.`);
+      for (const r of results) {
+        console.log(`  ${r.agentId}: ${r.composite.toFixed(2)}`);
+      }
+    }
+  });
+
+profileCmd
+  .command('team')
+  .description('Show all agent profiles ranked by composite score')
+  .action(() => {
+    createDb();
+    console.log(formatTeamProfiles());
   });
 
 program.parse();
