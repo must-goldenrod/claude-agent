@@ -6,7 +6,7 @@ function hash(str) {
   return crypto.createHash('sha256').update(str || '').digest('hex').slice(0, 16);
 }
 
-export function recordExecution({ agentId, model, sessionId, pipelinePhase, promptPreview, output, durationMs }) {
+export function recordExecution({ agentId, model, sessionId, pipelinePhase, promptPreview, output, durationMs, outputLength, tokenEstimate, callOrder, projectType, modelVersion }) {
   const db = getDb();
 
   // Auto-register agent if not exists
@@ -19,8 +19,8 @@ export function recordExecution({ agentId, model, sessionId, pipelinePhase, prom
 
   // Record execution
   const result = db.prepare(`
-    INSERT INTO executions (agent_id, session_id, pipeline_phase, prompt_hash, output_hash, output_schema_valid, schema_score, duration_ms, metadata)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO executions (agent_id, session_id, pipeline_phase, prompt_hash, output_hash, output_schema_valid, schema_score, duration_ms, output_length, token_estimate, call_order, project_type, model_version, metadata)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     agentId,
     sessionId || null,
@@ -30,6 +30,11 @@ export function recordExecution({ agentId, model, sessionId, pipelinePhase, prom
     validation.valid ? 1 : 0,
     validation.score,
     durationMs || null,
+    outputLength || null,
+    tokenEstimate || null,
+    callOrder || null,
+    projectType || null,
+    modelVersion || null,
     JSON.stringify({
       prompt_preview: (promptPreview || '').slice(0, 200),
       validation_errors: validation.errors,

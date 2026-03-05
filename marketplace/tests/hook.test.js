@@ -40,4 +40,25 @@ describe('Hook Parser', () => {
     expect(parsed.agentId).toBe('test');
     expect(parsed.model).toBeUndefined();
   });
+
+  it('parseHookInput extracts output_length', () => {
+    const input = {
+      tool_name: 'Agent',
+      tool_input: { subagent_type: 'test', prompt: 'do stuff' },
+      tool_output: 'Hello world output',
+    };
+    const parsed = parseHookInput(input);
+    expect(parsed.outputLength).toBe(18);
+  });
+
+  it('parseHookInput estimates tokens from output', () => {
+    const output = 'a'.repeat(400);
+    const input = {
+      tool_name: 'Agent',
+      tool_input: { subagent_type: 'test' },
+      tool_output: output,
+    };
+    const parsed = parseHookInput(input);
+    expect(parsed.tokenEstimate).toBe(100);
+  });
 });
