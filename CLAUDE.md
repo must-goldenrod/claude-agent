@@ -83,3 +83,30 @@ CLI 명령어:
 - 팀리더는 opus, 팀원은 sonnet 모델 사용 (예외: final-reviewer, code-reviewer-impl은 opus)
 - output/ 디렉토리의 결과 파일은 커밋하지 않음
 - 에이전트 프롬프트에서 표준 스키마 필드는 `_standard_fields` 참조로 대체 (토큰 최적화)
+
+## 보안 코딩 규칙
+
+marketplace/ 코드 작성 시 반드시 준수해야 하는 보안 패턴. 2026-03-22 보안 감사에서 수립됨.
+
+### 입력 검증
+- **에이전트 이름/태그**: `validateAgentName()` 또는 `/^[a-z0-9][a-z0-9._-]{0,63}$/` 화이트리스트 패턴 사용
+- **파일 경로**: 모든 사용자 입력 경로는 `safePath(baseDir, untrusted)` 통과 필수 (CWE-22 방지)
+- **JSON 추출**: LLM 응답에서 JSON 추출 시 balanced-brace 파서 사용. `/\{[^}]+\}/` 같은 naive regex 금지 (중첩 JSON 절삭 위험)
+- 검증 함수 위치: `marketplace/src/sanitize.js`
+
+### 데이터 보호
+- **세션 ID**: DB 저장 전 `crypto.createHash('sha256').update(id).digest('hex').slice(0, 16)` 해싱 필수
+- **민감 파일 권한**: DB 파일은 `0o600`, 디렉토리는 `0o700`으로 생성. `fs.chmodSync()` 명시적 호출
+- **에러 메시지**: stderr 로그에 내부 경로, 스키마, 스택 트레이스 노출 금지. 일반화된 메시지만 출력
+
+### 안정성
+- **JSON.parse 안전성**: DB나 외부 소스 데이터에 대한 `JSON.parse()`는 반드시 try-catch로 감싸고, 파싱 실패 시 기본값(zero-value) 반환
+- **Silent failure 금지**: 모든 `catch` 블록은 `process.stderr.write()` 등으로 에러 로깅 필수. 빈 catch 금지
+- **Symlink 방어**: 사용자 영향 가능 경로에 파일 쓰기 전 `fs.lstatSync().isSymbolicLink()` 확인 필수
+
+### 설정
+- **하드코딩 금지**: 모델명 등 변경 가능한 값은 환경변수 fallback 지원 (예: `process.env.AGENT_EVAL_MODEL || 'default'`)
+
+### 테스트
+- 보안 수정에는 반드시 대응하는 테스트 작성: `marketplace/tests/security-fixes.test.js` (유닛), `marketplace/tests/security-integration.test.js` (통합)
+- 보안 테스트는 악의적 입력, 손상 데이터, 경계값을 반드시 포함

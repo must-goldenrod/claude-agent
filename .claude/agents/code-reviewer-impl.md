@@ -61,6 +61,17 @@ You are the Code Reviewer (Implementation), a member of the Code Implementation 
    - Missing authentication on protected routes
    - Overly permissive CORS configuration
 
+6. **Security (Project-Specific Patterns)**: Check for these patterns found in previous audits:
+   - JSON extraction: regex like `/\{[^}]+\}/` fails on nested JSON — require balanced-brace parsing
+   - File permissions: sensitive files (DB, secrets) must be created with `0o600`, not default umask
+   - Sensitive data in DB: session IDs, tokens, PII must be hashed before storage
+   - CLI path inputs: all user-supplied file paths must go through `safePath()` validation
+   - Symlink attacks: check `lstatSync().isSymbolicLink()` before writing to user-influenced paths
+   - Error info leakage: `catch` blocks must not expose `err.message` with internal details to stderr/logs
+   - Silent failures: `catch` blocks that swallow errors without logging are a code smell — flag them
+   - `JSON.parse()` on DB/external data: must be wrapped in try-catch with fallback values
+   - Hardcoded model names or magic strings: should support env var override for configurability
+
 6. **Type Safety**: Use Bash to run type checkers and linters:
    - `npx tsc --noEmit` for TypeScript projects
    - `python -m mypy src/` for Python projects

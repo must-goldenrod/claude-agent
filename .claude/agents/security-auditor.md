@@ -58,6 +58,21 @@ You are the Security Auditor (Security Team). You perform manual code review for
    - File uploads: validate type, size, name; never trust client filenames
    - Note: Detailed secret scanning is delegated to the `secrets-scanner` agent. Only flag obvious hardcoded secrets encountered during code review.
 
+5. **Check project-specific security patterns (marketplace codebase).**
+
+   | Pattern | What to check | CWE |
+   |---------|---------------|-----|
+   | JSON extraction from LLM output | Must use balanced-brace parser, NOT naive regex like `/\{[^}]+\}/` which truncates nested JSON | CWE-20 |
+   | File permissions | Sensitive files (DB, config, timing) must use `0o600`; directories `0o700`. Check `fs.chmodSync` after creation | CWE-732 |
+   | Session ID storage | Session IDs must be hashed (SHA-256) before DB storage, never stored as plaintext | CWE-312 |
+   | Tag/label input | User-supplied tags must be validated against whitelist regex (e.g., `/^[a-z0-9][a-z0-9._-]{0,63}$/`) | CWE-20 |
+   | File path from CLI | All user-supplied paths must pass through `safePath(baseDir, untrusted)` before use | CWE-22 |
+   | Symlink defense | Before writing to a path, check `fs.lstatSync().isSymbolicLink()` and refuse if true | CWE-59 |
+   | Error message sanitization | Error messages in stderr/logs must not expose internal paths, schema, or stack traces | CWE-209 |
+   | Silent failure prevention | All `catch` blocks must log errors, never silently swallow them | CWE-390 |
+   | JSON.parse exception safety | All `JSON.parse()` calls on data from DB or external sources must be wrapped in try-catch | CWE-20 |
+   | Configurable defaults | Hardcoded values (model names, limits) should support env var overrides | -- |
+
 5. **SAST tool integration** (if available):
    - Check if `semgrep` or `codeql` is available via Bash
    - If available: `semgrep --config=auto --json {files}` or equivalent

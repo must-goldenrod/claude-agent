@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
+import crypto from 'crypto';
 import { createDb } from '../../marketplace/src/db.js';
 import { recordExecution } from '../../marketplace/src/tracker.js';
 import { shouldTrack, parseHookInput, detectProjectType } from '../../marketplace/src/hook-parser.js';
 import { readTimingStart } from '../../marketplace/src/timing.js';
+
+function hashSessionId(sessionId) {
+  if (!sessionId) return null;
+  return crypto.createHash('sha256').update(sessionId).digest('hex').slice(0, 16);
+}
 
 async function readStdin() {
   const chunks = [];
@@ -38,7 +44,7 @@ async function main() {
     recordExecution({
       agentId: parsed.agentId,
       model: parsed.model,
-      sessionId: process.env.CLAUDE_SESSION_ID || null,
+      sessionId: hashSessionId(process.env.CLAUDE_SESSION_ID),
       promptPreview: parsed.promptPreview,
       output: parsed.output,
       durationMs,
@@ -49,7 +55,7 @@ async function main() {
       modelVersion: parsed.model || null,
     });
   } catch (err) {
-    process.stderr.write(`[agent-tracker] ${err.message}\n`);
+    process.stderr.write(`[agent-tracker] execution tracking failed\n`);
   }
 }
 

@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { getDb } from './db.js';
 import { buildEvalPrompt, parseLlmScores, recordLlmEvaluation } from './evaluator.js';
 
-const MODEL = 'claude-haiku-4-5-20251001';
+const MODEL = process.env.AGENT_EVAL_MODEL || 'claude-haiku-4-5-20251001';
 
 export async function evaluateExecution(executionId) {
   const db = getDb();
@@ -10,7 +10,7 @@ export async function evaluateExecution(executionId) {
   if (!exec) throw new Error(`Execution ${executionId} not found`);
 
   const metadata = JSON.parse(exec.metadata || '{}');
-  const prompt = buildEvalPrompt(metadata.prompt_preview || '', metadata.prompt_preview || '');
+  const prompt = buildEvalPrompt(metadata.prompt_preview || '', metadata.output_preview || '');
 
   const client = new Anthropic();
   const response = await client.messages.create({

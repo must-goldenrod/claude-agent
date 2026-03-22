@@ -3,6 +3,7 @@ import path from 'path';
 import { exportAgent } from './installer.js';
 import { loadRegistry, saveRegistry, registerAgent } from './registry.js';
 import { parseFrontmatter, computeContentHash } from './packager.js';
+import { validateAgentName, safePath } from './sanitize.js';
 
 export function bulkPublish(agentsDir, registryDir, overrides = {}) {
   const registryPath = path.join(registryDir, 'registry.json');
@@ -23,13 +24,22 @@ export function bulkPublish(agentsDir, registryDir, overrides = {}) {
       continue;
     }
 
-    const outputDir = path.join(registryDir, 'agents', fm.name);
+    try {
+      validateAgentName(fm.name);
+    } catch {
+      skipped++;
+      continue;
+    }
+
+    const agentsBase = path.join(registryDir, 'agents');
+    const outputDir = safePath(agentsBase, fm.name);
     const result = exportAgent(agentPath, outputDir, overrides);
 
     if (result.success) {
       registerAgent(reg, result.meta, computeContentHash(content));
       published++;
     } else {
+      process.stderr.write(`[bulk-publish] failed to publish "${fm.name}": ${result.error || 'unknown error'}\n`);
       errors++;
     }
   }

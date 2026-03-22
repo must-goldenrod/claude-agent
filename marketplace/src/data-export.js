@@ -1,6 +1,7 @@
 import { getDb } from './db.js';
 import { loadRegistry } from './registry.js';
 import { calculateProfile } from './profiler.js';
+import { safePath } from './sanitize.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -160,13 +161,17 @@ export function exportAllData(registryPath, outputDir) {
   fs.writeFileSync(path.join(outputDir, 'leaderboard.json'), JSON.stringify(leaderboard, null, 2));
 
   const db = getDb();
+  const statsDir = path.join(outputDir, 'stats');
   const trackedAgents = db.prepare('SELECT DISTINCT agent_id FROM executions').all();
   for (const { agent_id } of trackedAgents) {
     const detail = exportAgentDetail(agent_id);
-    fs.writeFileSync(
-      path.join(outputDir, 'stats', `${agent_id}.json`),
-      JSON.stringify(detail, null, 2)
-    );
+    const safeName = agent_id.replace(/[^a-z0-9._-]/gi, '-');
+    const filePath = safePath(statsDir, `${safeName}.json`);
+    // Defend against symlink attacks: refuse to write if target is a symlink
+    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isSymbolicLink()) {
+      throw new Error(`Symlink detected at ${filePath}, refusing to write`);
+    }
+    fs.writeFileSync(filePath, JSON.stringify(detail, null, 2));
   }
 
   return {

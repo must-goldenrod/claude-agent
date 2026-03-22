@@ -1,10 +1,12 @@
 import Database from 'better-sqlite3';
+import fs from 'fs';
+import os from 'os';
 import path from 'path';
 
 let db = null;
 
 const DEFAULT_DB_PATH = path.join(
-  process.env.HOME, '.claude', 'agent-marketplace.db'
+  os.homedir(), '.claude', 'agent-marketplace.db'
 );
 
 const SCHEMA = `
@@ -109,7 +111,15 @@ CREATE INDEX IF NOT EXISTS idx_profile_history_agent ON profile_history(agent_id
 `;
 
 export function createDb(dbPath = DEFAULT_DB_PATH) {
+  const dbDir = path.dirname(dbPath);
+  if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true, mode: 0o700 });
+  }
+  const isNew = !fs.existsSync(dbPath);
   db = new Database(dbPath);
+  if (isNew) {
+    fs.chmodSync(dbPath, 0o600);
+  }
   db.pragma('journal_mode = WAL');
   db.exec(SCHEMA);
 

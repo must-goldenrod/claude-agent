@@ -14,6 +14,7 @@ import { exportAllData } from '../src/data-export.js';
 import { refreshProfile, refreshAllProfiles } from '../src/profiler.js';
 import path from 'path';
 import fs from 'fs';
+import { validateAgentName, safePath } from '../src/sanitize.js';
 
 const program = new Command();
 
@@ -79,13 +80,18 @@ evalCmd
   .action((executionId, opts) => {
     createDb();
     const score = parseFloat(opts.score);
-    if (score < 0 || score > 1) {
-      console.error('Score must be between 0.0 and 1.0');
+    if (!Number.isFinite(score) || score < 0 || score > 1) {
+      console.error('Score must be a number between 0.0 and 1.0');
       process.exit(1);
     }
-    recordUserFeedback(parseInt(executionId), score, opts.comment || '');
+    const execId = parseInt(executionId, 10);
+    if (!Number.isFinite(execId) || execId < 1) {
+      console.error('Execution ID must be a positive integer');
+      process.exit(1);
+    }
+    recordUserFeedback(execId, score, opts.comment || '');
     console.log(`Recorded user feedback: ${score}`);
-    console.log(formatCompositeScore(parseInt(executionId)));
+    console.log(formatCompositeScore(execId));
   });
 
 evalCmd
@@ -160,8 +166,8 @@ marketCmd
   .option('-r, --registry <path>', 'Registry directory', DEFAULT_REGISTRY)
   .action((agentFile, opts) => {
     createDb();
-    const tags = opts.tags ? opts.tags.split(',').map(t => t.trim()) : [];
-    const agentPath = path.resolve(agentFile);
+    const tags = opts.tags ? opts.tags.split(',').map(t => t.trim()).filter(t => /^[a-z0-9][a-z0-9._-]{0,63}$/.test(t)) : [];
+    const agentPath = safePath(process.cwd(), agentFile);
     const content = fs.readFileSync(agentPath, 'utf8');
     const fm = parseFrontmatter(content);
     const agentName = fm?.name || path.basename(agentFile, '.md');

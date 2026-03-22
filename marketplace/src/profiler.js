@@ -25,30 +25,41 @@ function clamp(v) {
   return Math.max(0, Math.min(1, v));
 }
 
-function calculateQuality(execIds, db) {
+function calculateQuality(execIds, db, agentId) {
   if (!execIds.length) return { score: 0, details: {} };
 
-  const placeholders = execIds.map(() => '?').join(',');
-
-  // Check for LLM evaluations
+  // Use subquery instead of dynamic IN(...) placeholders to prevent SQL injection patterns
   const llmEvals = db.prepare(
-    `SELECT details FROM evaluations WHERE execution_id IN (${placeholders}) AND eval_type = 'llm'`
-  ).all(...execIds);
+    `SELECT details FROM evaluations WHERE execution_id IN (SELECT id FROM executions WHERE agent_id = ?) AND eval_type = 'llm'`
+  ).all(agentId);
 
-  // Check for user evaluations
   const userEvals = db.prepare(
-    `SELECT score FROM evaluations WHERE execution_id IN (${placeholders}) AND eval_type = 'user'`
-  ).all(...execIds);
+    `SELECT score FROM evaluations WHERE execution_id IN (SELECT id FROM executions WHERE agent_id = ?) AND eval_type = 'user'`
+  ).all(agentId);
 
-  // Fall back to schema scores
   const schemaEvals = db.prepare(
-    `SELECT score FROM evaluations WHERE execution_id IN (${placeholders}) AND eval_type = 'schema'`
-  ).all(...execIds);
+    `SELECT score FROM evaluations WHERE execution_id IN (SELECT id FROM executions WHERE agent_id = ?) AND eval_type = 'schema'`
+  ).all(agentId);
 
   const details = {};
 
   if (llmEvals.length > 0) {
-    const parsed = llmEvals.map(e => JSON.parse(e.details));
+    const parsed = llmEvals.map(e => {
+      let p;
+      try {
+        p = JSON.parse(e.details);
+      } catch {
+        return { relevance: 0, depth: 0, actionability: 0, consistency: 0 };
+      }
+      if (typeof p !== 'object' || p === null) {
+        return { relevance: 0, depth: 0, actionability: 0, consistency: 0 };
+      }
+      // Validate parsed scores are finite numbers in [0,1]
+      for (const key of ['relevance', 'depth', 'actionability', 'consistency']) {
+        if (!Number.isFinite(p[key]) || p[key] < 0 || p[key] > 1) p[key] = 0;
+      }
+      return p;
+    });
     details.relevance = round2(avg(parsed.map(p => p.relevance)));
     details.depth = round2(avg(parsed.map(p => p.depth)));
     details.actionability = round2(avg(parsed.map(p => p.actionability)));
@@ -198,7 +209,7 @@ export function calculateProfile(agentId) {
 
   const execIds = executions.map(e => e.id);
 
-  const quality = calculateQuality(execIds, db);
+  const quality = calculateQuality(execIds, db, agentId);
   const efficiency = calculateEfficiency(executions);
   const reliability = calculateReliability(executions);
   const impact = calculateImpact(executions, db);

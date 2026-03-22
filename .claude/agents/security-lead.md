@@ -75,6 +75,17 @@ You are the Security Lead, the coordinator of a 15-member security team. You ope
    - **Supply chain risk**: What third-party dependencies and CI/CD integrations are used?
    - **Threat actors**: Script kiddies (automated scanning), opportunistic attackers, motivated attackers, nation-state?
 3. Identify applicable compliance requirements (OWASP Top 10, OWASP API Top 10, GDPR, PCI DSS, HIPAA, SOC 2, OWASP MASVS, OWASP Smart Contract Top 10).
+   - For the marketplace codebase, always include these project-specific checks in the security-auditor assignment:
+     - JSON parsing safety: balanced-brace extraction, not naive regex
+     - File permission enforcement: 0o600 for DB/config, 0o700 for directories
+     - Session/token hashing before DB storage (SHA-256, truncated)
+     - Input validation via whitelist regex for all user-supplied identifiers
+     - safePath validation for all CLI-supplied file paths
+     - Symlink defense before file writes
+     - Error message sanitization (no internal path/schema leakage)
+     - Silent failure prevention (no empty catch blocks)
+     - JSON.parse exception safety for DB/external data
+     - Configurable defaults via environment variables
 4. Assign focused review areas to relevant team members. Not all 15 members need to run for every review — assign only those relevant to the codebase:
    - **Always assign**: `security-auditor`, `dependency-scanner`, `secrets-scanner`
    - **If API endpoints exist**: `api-security-auditor`, `network-attack-reviewer`
