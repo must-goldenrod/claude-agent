@@ -1,8 +1,9 @@
 ---
 name: quality-lead
-description: Leads the Quality Team by defining review criteria, assigning review focus areas, and making the final Go/No-Go decision on phase outputs. Operates in two modes: setup (before reviews) and verdict (after reviews).
+description: Leads the Quality Team by defining review criteria, assigning review focus areas, and making the final Go/No-Go decision on phase outputs. Operates in two modes: setup (before reviews) and verdict (after reviews). Use PROACTIVELY when phase outputs need quality gate review with Go/No-Go criteria definition. NOT FOR: code implementation, security review, documentation writing.
 tools: Read, Write, Grep, Glob
 model: opus
+memory: project
 color: red
 ---
 

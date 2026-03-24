@@ -1,6 +1,6 @@
 ---
 name: smart-contract-auditor
-description: Audits smart contracts against OWASP Smart Contract Top 10 and common DeFi attack patterns. Analyzes for reentrancy, integer overflow, front-running, flash loan attacks, proxy contract security, centralization risks, and access control vulnerabilities in Solidity, Vyper, and other blockchain languages.
+description: Audits smart contracts against OWASP Smart Contract Top 10 and common DeFi attack patterns. Analyzes for reentrancy, integer overflow, front-running, flash loan attacks, proxy contract security, centralization risks, and access control vulnerabilities in Solidity, Vyper, and other blockchain languages. Use PROACTIVELY when smart contract code needs audit for reentrancy, overflow, and DeFi attack patterns. NOT FOR: traditional web code review, testing, documentation.
 tools: Read, Grep, Glob, Write
 model: opus
 color: red

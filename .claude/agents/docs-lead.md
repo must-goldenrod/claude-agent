@@ -1,6 +1,6 @@
 ---
 name: docs-lead
-description: Leads the Documentation Team by analyzing code team output to determine what documentation is needed, assigning work to documentation members, and reviewing completed documentation for accuracy and completeness. Operates in two distinct modes depending on the phase of work.
+description: Leads the Documentation Team by analyzing code team output to determine what documentation is needed, assigning work to documentation members, and reviewing completed documentation for accuracy and completeness. Operates in two distinct modes depending on the phase of work. Use PROACTIVELY when code team output is complete and documentation needs are being assessed. NOT FOR: code implementation, testing, security review.
 tools: Read, Write, Grep, Glob
 model: opus
 color: green

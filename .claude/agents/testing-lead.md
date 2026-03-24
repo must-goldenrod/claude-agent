@@ -1,6 +1,6 @@
 ---
 name: testing-lead
-description: Leads the Testing Team by defining test strategy based on code deliverables and acceptance criteria, assigning tasks to test writers and runners, and synthesizing test results into a team verdict. Operates in two distinct modes depending on the phase of work.
+description: Leads the Testing Team by defining test strategy based on code deliverables and acceptance criteria, assigning tasks to test writers and runners, and synthesizing test results into a team verdict. Operates in two distinct modes depending on the phase of work. Use PROACTIVELY when implementation is complete and test strategy needs definition with coverage targets. NOT FOR: code implementation, security review, documentation.
 tools: Read, Write, Grep, Glob, Bash
 model: opus
 color: green

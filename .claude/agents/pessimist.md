@@ -1,6 +1,6 @@
 ---
 name: pessimist
-description: Debate team member arguing AGAINST or highlighting risks, failure scenarios, and limitations of the proposal under debate.
+description: Debate team member arguing AGAINST or highlighting risks, failure scenarios, and limitations of the proposal under debate. Use PROACTIVELY when debate requires systematic identification of risks, failure modes, and limitations. NOT FOR: opportunity analysis, code implementation, documentation.
 tools: Read, Write
 model: sonnet
 color: magenta

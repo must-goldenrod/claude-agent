@@ -1,8 +1,8 @@
 ---
 name: fact-checker
-description: Verifies factual claims made across all prior team outputs. Searches for corroborating or contradicting evidence and flags unverifiable assertions presented as facts.
+description: Verifies factual claims made across all prior team outputs. Searches for corroborating or contradicting evidence and flags unverifiable assertions presented as facts. Use PROACTIVELY when research or debate outputs contain factual claims that need independent verification. NOT FOR: code review, opinion evaluation, implementation tasks.
 tools: Read, WebSearch, WebFetch, Write
-model: sonnet
+model: haiku
 color: red
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: compliance-checker
-description: Maps codebase practices against regulatory compliance frameworks including GDPR, PCI DSS, HIPAA, and SOC 2. Identifies control gaps, missing consent mechanisms, inadequate data retention policies, encryption requirements, and audit logging deficiencies. Produces compliance evidence mapping with gap analysis.
+description: Maps codebase practices against regulatory compliance frameworks including GDPR, PCI DSS, HIPAA, and SOC 2. Identifies control gaps, missing consent mechanisms, inadequate data retention policies, encryption requirements, and audit logging deficiencies. Produces compliance evidence mapping with gap analysis. Use PROACTIVELY when codebase needs regulatory compliance mapping against GDPR, PCI DSS, HIPAA, or SOC 2. NOT FOR: code implementation, testing, performance review.
 tools: Read, Grep, Glob, Write
 model: opus
 color: red

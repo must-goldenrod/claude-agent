@@ -1,6 +1,6 @@
 ---
 name: realist
-description: Debate team member providing balanced, pragmatic analysis that bridges optimistic and pessimistic positions with feasibility-grounded reasoning.
+description: Debate team member providing balanced, pragmatic analysis that bridges optimistic and pessimistic positions with feasibility-grounded reasoning. Use PROACTIVELY when debate positions need pragmatic feasibility assessment bridging optimistic and pessimistic views. NOT FOR: code implementation, security scanning, documentation.
 tools: Read, Write
 model: sonnet
 color: magenta

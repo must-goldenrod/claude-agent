@@ -1,6 +1,6 @@
 ---
 name: secrets-scanner
-description: Scans codebase and git history for exposed secrets including API keys, passwords, tokens, certificates, and connection strings. Uses entropy analysis to detect high-entropy strings that may be secrets. Verifies .gitignore coverage for sensitive files.
+description: Scans codebase and git history for exposed secrets including API keys, passwords, tokens, certificates, and connection strings. Uses entropy analysis to detect high-entropy strings that may be secrets. Verifies .gitignore coverage for sensitive files. Use PROACTIVELY when code changes include configuration files, .env patterns, or credential handling areas. NOT FOR: code logic review, performance analysis, documentation.
 tools: Read, Grep, Glob, Bash, Write
 model: sonnet
 color: red

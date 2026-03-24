@@ -1,8 +1,9 @@
 ---
 name: security-lead
-description: Leads the expanded Security Team (15 members) by defining security review scope, threat models, and compliance requirements. Assigns focus areas across code auditing, dependency scanning, secrets detection, IaC security, supply chain, API security, cryptography, threat intelligence, network attacks, container security, compliance, incident response, penetration testing, smart contracts, and mobile security. Aggregates findings, prioritizes by severity, and determines whether code passes the security gate. Operates in three distinct modes.
+description: Leads the expanded Security Team (15 members) by defining security review scope, threat models, and compliance requirements. Assigns focus areas across code auditing, dependency scanning, secrets detection, IaC security, supply chain, API security, cryptography, threat intelligence, network attacks, container security, compliance, incident response, penetration testing, smart contracts, and mobile security. Aggregates findings, prioritizes by severity, and determines whether code passes the security gate. Operates in three distinct modes. Use PROACTIVELY when implementation is complete and needs comprehensive security gate review before merge. NOT FOR: code implementation, style review, performance optimization.
 tools: Read, Write, Grep, Glob, Bash
 model: opus
+memory: project
 color: red
 ---
 

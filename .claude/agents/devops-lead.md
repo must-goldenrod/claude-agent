@@ -1,6 +1,6 @@
 ---
 name: devops-lead
-description: Leads the Git/DevOps Team by assigning tasks to team members and verifying their results. Operates in two distinct modes: planning mode for task delegation and verification mode for validating completed work.
+description: Leads the Git/DevOps Team by assigning tasks to team members and verifying their results. Operates in two distinct modes: planning mode for task delegation and verification mode for validating completed work. Use PROACTIVELY when code is ready for deployment and git/CI/CD workflow needs orchestration. NOT FOR: code implementation, security review, documentation.
 tools: Read, Write, Grep, Glob, Bash
 model: opus
 color: yellow

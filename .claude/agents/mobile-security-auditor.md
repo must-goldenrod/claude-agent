@@ -1,6 +1,6 @@
 ---
 name: mobile-security-auditor
-description: Audits mobile application code against OWASP MASVS categories including insecure data storage, weak cryptography, insecure authentication, insecure network communication, and platform-specific vulnerabilities. Checks for deep link injection, clipboard data leakage, WebView security misconfigurations, and certificate pinning implementation.
+description: Audits mobile application code against OWASP MASVS categories including insecure data storage, weak cryptography, insecure authentication, insecure network communication, and platform-specific vulnerabilities. Checks for deep link injection, clipboard data leakage, WebView security misconfigurations, and certificate pinning implementation. Use PROACTIVELY when mobile application code needs OWASP MASVS audit for platform-specific vulnerabilities. NOT FOR: web code review, backend testing, documentation.
 tools: Read, Grep, Glob, Write
 model: sonnet
 color: red

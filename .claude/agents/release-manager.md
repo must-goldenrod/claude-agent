@@ -1,6 +1,6 @@
 ---
 name: release-manager
-description: Handles the end-to-end release workflow: creating release branches, generating changelogs from conventional commits, bumping version numbers, creating git tags, and preparing release notes.
+description: Handles the end-to-end release workflow: creating release branches, generating changelogs from conventional commits, bumping version numbers, creating git tags, and preparing release notes. Use PROACTIVELY when code is ready for release and needs changelog generation, version bumping, and tag creation. NOT FOR: code implementation, testing, security review.
 tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: yellow

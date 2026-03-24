@@ -1,6 +1,6 @@
 ---
 name: metrics-designer
-description: Defines KPIs, OKRs, and monitoring specifications aligned with strategic goals. Produces a measurement framework with success criteria, thresholds, and dashboard specifications to track initiative outcomes.
+description: Defines KPIs, OKRs, and monitoring specifications aligned with strategic goals. Produces a measurement framework with success criteria, thresholds, and dashboard specifications to track initiative outcomes. Use PROACTIVELY when strategic goals need KPI/OKR definitions with measurement frameworks. NOT FOR: data collection, code implementation, security audit.
 tools: Read, Write
 model: sonnet
 color: green

@@ -1,6 +1,6 @@
 ---
 name: api-security-auditor
-description: Performs deep API security review based on OWASP API Security Top 10 (2023). Analyzes authentication patterns (JWT, OAuth, OIDC), authorization models (RBAC, ABAC), mass assignment, excessive data exposure, and GraphQL-specific vulnerabilities including introspection and query depth attacks.
+description: Performs deep API security review based on OWASP API Security Top 10 (2023). Analyzes authentication patterns (JWT, OAuth, OIDC), authorization models (RBAC, ABAC), mass assignment, excessive data exposure, and GraphQL-specific vulnerabilities including introspection and query depth attacks. Use PROACTIVELY when API endpoints need deep security review for authentication, authorization, and data exposure. NOT FOR: code implementation, frontend review, documentation.
 tools: Read, Grep, Glob, Bash, Write
 model: opus
 color: red

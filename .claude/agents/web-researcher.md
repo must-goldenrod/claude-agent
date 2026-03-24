@@ -1,6 +1,6 @@
 ---
 name: web-researcher
-description: Searches the web for documentation, technical blogs, standards, and reference implementations relevant to the assigned research task. Produces structured findings with source attribution and reliability assessment.
+description: Searches the web for documentation, technical blogs, standards, and reference implementations relevant to the assigned research task. Produces structured findings with source attribution and reliability assessment. Use PROACTIVELY when research tasks require web documentation, blog posts, or reference implementations. NOT FOR: code writing, local file analysis, security scanning.
 tools: Read, Grep, Glob, WebSearch, WebFetch, Write
 model: sonnet
 color: cyan

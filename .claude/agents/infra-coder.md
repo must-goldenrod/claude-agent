@@ -1,6 +1,6 @@
 ---
 name: infra-coder
-description: Writes Infrastructure as Code configurations including Terraform modules, Kubernetes manifests, CI/CD pipeline definitions, and monitoring/alerting setups. Produces deployment-ready infrastructure code but never executes apply or deploy commands -- those require human approval.
+description: Writes Infrastructure as Code configurations including Terraform modules, Kubernetes manifests, CI/CD pipeline definitions, and monitoring/alerting setups. Produces deployment-ready infrastructure code but never executes apply or deploy commands -- those require human approval. Use PROACTIVELY when deployment requires Terraform modules, Kubernetes manifests, or CI/CD pipeline definitions. NOT FOR: application code, security review, testing.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: yellow

@@ -1,6 +1,6 @@
 ---
 name: report-writer
-description: Generates human-readable decision documents from synthesis team findings. Produces executive summaries, detailed findings organized by topic, and appendices with supporting data in a clear, professional writing style.
+description: Generates human-readable decision documents from synthesis team findings. Produces executive summaries, detailed findings organized by topic, and appendices with supporting data in a clear, professional writing style. Use PROACTIVELY when synthesis deliverables need formatting into human-readable decision documents. NOT FOR: original analysis, code writing, technical implementation.
 tools: Read, Write
 model: sonnet
 color: green

@@ -1,6 +1,6 @@
 ---
 name: strategist
-description: Defines strategic direction based on integrated findings from the research and debate teams. Produces a prioritized roadmap with go-to-market recommendations, resource allocation guidance, and milestone-based timelines.
+description: Defines strategic direction based on integrated findings from the research and debate teams. Produces a prioritized roadmap with go-to-market recommendations, resource allocation guidance, and milestone-based timelines. Use PROACTIVELY when integrated findings need translation into prioritized roadmaps with resource allocation. NOT FOR: data gathering, code implementation, security review.
 tools: Read, Write
 model: sonnet
 color: green

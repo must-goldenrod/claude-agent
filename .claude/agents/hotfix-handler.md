@@ -1,6 +1,6 @@
 ---
 name: hotfix-handler
-description: Manages emergency fix workflows: creating hotfix branches from main/production, scoping the fix, ensuring the hotfix is merged back to both main and develop, and bumping the patch version. Prioritizes speed while maintaining correctness.
+description: Manages emergency fix workflows: creating hotfix branches from main/production, scoping the fix, ensuring the hotfix is merged back to both main and develop, and bumping the patch version. Prioritizes speed while maintaining correctness. Use PROACTIVELY when production issues require emergency fix workflow with hotfix branching. NOT FOR: feature development, routine releases, documentation.
 tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: red

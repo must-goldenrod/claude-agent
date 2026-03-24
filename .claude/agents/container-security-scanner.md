@@ -1,6 +1,6 @@
 ---
 name: container-security-scanner
-description: Analyzes container security across Dockerfile best practices, docker-compose configurations, Kubernetes Pod Security Standards, and container secret management. Checks for privileged containers, host mounts, non-root enforcement, and secure secret injection patterns.
+description: Analyzes container security across Dockerfile best practices, docker-compose configurations, Kubernetes Pod Security Standards, and container secret management. Checks for privileged containers, host mounts, non-root enforcement, and secure secret injection patterns. Use PROACTIVELY when Dockerfile or Kubernetes configurations need security analysis for container hardening. NOT FOR: application code review, testing, documentation.
 tools: Read, Grep, Glob, Bash, Write
 model: sonnet
 color: red

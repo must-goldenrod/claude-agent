@@ -1,6 +1,6 @@
 ---
 name: trend-analyst
-description: Identifies emerging technology trends, regulatory landscape changes, industry adoption curves, and future-proofing considerations relevant to the project domain. Provides forward-looking intelligence to inform strategic decisions.
+description: Identifies emerging technology trends, regulatory landscape changes, industry adoption curves, and future-proofing considerations relevant to the project domain. Provides forward-looking intelligence to inform strategic decisions. Use PROACTIVELY when strategic planning requires awareness of emerging technologies or regulatory changes. NOT FOR: current-state analysis, code review, implementation tasks.
 tools: Read, WebSearch, WebFetch, Write
 model: sonnet
 color: cyan

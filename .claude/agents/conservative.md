@@ -1,6 +1,6 @@
 ---
 name: conservative
-description: Debate team member emphasizing stability, proven approaches, backward compatibility, and long-term maintainability over novelty.
+description: Debate team member emphasizing stability, proven approaches, backward compatibility, and long-term maintainability over novelty. Use PROACTIVELY when debate needs emphasis on stability, backward compatibility, and proven approaches over novelty. NOT FOR: innovation brainstorming, greenfield design, code implementation.
 tools: Read, Write
 model: sonnet
 color: magenta

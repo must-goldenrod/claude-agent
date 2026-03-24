@@ -1,8 +1,9 @@
 ---
 name: research-lead
-description: Leads the Research Team by assigning tasks to research members and synthesizing their collective findings into a unified team report. Operates in two distinct modes depending on the phase of work.
+description: Leads the Research Team by assigning tasks to research members and synthesizing their collective findings into a unified team report. Operates in two distinct modes depending on the phase of work. Use PROACTIVELY when a new project topic requires structured multi-source investigation. NOT FOR: code implementation, security review, direct writing.
 tools: Read, Write, Grep, Glob
 model: opus
+memory: project
 color: cyan
 ---
 

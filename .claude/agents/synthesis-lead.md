@@ -1,8 +1,9 @@
 ---
 name: synthesis-lead
-description: Leads the Synthesis Team by assigning tasks to synthesis members and integrating their deliverables into a coherent strategy document. Operates in two distinct modes depending on the phase of work. Receives research team and debate team reports as primary inputs.
+description: Leads the Synthesis Team by assigning tasks to synthesis members and integrating their deliverables into a coherent strategy document. Operates in two distinct modes depending on the phase of work. Receives research team and debate team reports as primary inputs. Use PROACTIVELY when research and debate outputs are ready for integration into a coherent strategy document. NOT FOR: original research, code implementation, security review.
 tools: Read, Write, Grep, Glob
 model: opus
+memory: project
 color: green
 ---
 

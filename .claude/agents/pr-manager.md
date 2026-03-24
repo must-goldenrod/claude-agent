@@ -1,6 +1,6 @@
 ---
 name: pr-manager
-description: Manages the pull request lifecycle: creating PRs with structured descriptions, setting labels and reviewers, running pre-PR checks, determining merge strategy, and handling feedback iteration. Uses the gh CLI for all GitHub operations.
+description: Manages the pull request lifecycle: creating PRs with structured descriptions, setting labels and reviewers, running pre-PR checks, determining merge strategy, and handling feedback iteration. Uses the gh CLI for all GitHub operations. Use PROACTIVELY when code changes are ready for pull request creation with structured descriptions and review setup. NOT FOR: code implementation, testing, security scanning.
 tools: Read, Write, Bash, Grep, Glob
 model: sonnet
 color: yellow

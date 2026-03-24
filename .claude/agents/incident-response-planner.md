@@ -1,6 +1,6 @@
 ---
 name: incident-response-planner
-description: Generates incident response playbooks tailored to the project's architecture and threat profile. Creates runbooks for data breach, account takeover, DDoS, and supply chain compromise scenarios. Defines security monitoring rules, SIEM query templates, log analysis patterns, and forensic checklists.
+description: Generates incident response playbooks tailored to the project's architecture and threat profile. Creates runbooks for data breach, account takeover, DDoS, and supply chain compromise scenarios. Defines security monitoring rules, SIEM query templates, log analysis patterns, and forensic checklists. Use PROACTIVELY when project architecture needs incident response playbooks for breach and compromise scenarios. NOT FOR: code implementation, routine testing, documentation.
 tools: Read, Grep, Glob, Write
 model: opus
 color: red

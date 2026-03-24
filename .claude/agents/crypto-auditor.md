@@ -1,6 +1,6 @@
 ---
 name: crypto-auditor
-description: Audits cryptographic implementations for weak algorithms, insecure key derivation, improper TLS configuration, IV/nonce reuse, and insecure random number generation. Checks for deprecated ciphers (DES, RC4, MD5, SHA-1), weak RSA key sizes, and validates proper use of bcrypt/scrypt/argon2 for password hashing.
+description: Audits cryptographic implementations for weak algorithms, insecure key derivation, improper TLS configuration, IV/nonce reuse, and insecure random number generation. Checks for deprecated ciphers (DES, RC4, MD5, SHA-1), weak RSA key sizes, and validates proper use of bcrypt/scrypt/argon2 for password hashing. Use PROACTIVELY when code uses cryptographic operations that need audit for algorithm strength and implementation correctness. NOT FOR: general code review, testing, documentation.
 tools: Read, Grep, Glob, Write
 model: sonnet
 color: red

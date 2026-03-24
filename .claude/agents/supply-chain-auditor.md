@@ -1,6 +1,6 @@
 ---
 name: supply-chain-auditor
-description: Audits CI/CD pipeline security, build integrity, and software supply chain risks. Checks GitHub Actions pinning, workflow permissions, artifact signing, lockfile tampering, registry source verification, and typosquatting detection.
+description: Audits CI/CD pipeline security, build integrity, and software supply chain risks. Checks GitHub Actions pinning, workflow permissions, artifact signing, lockfile tampering, registry source verification, and typosquatting detection. Use PROACTIVELY when CI/CD pipelines or build configurations need supply chain security audit. NOT FOR: application code review, testing, documentation.
 tools: Read, Grep, Glob, Bash, Write, WebSearch
 model: sonnet
 color: red

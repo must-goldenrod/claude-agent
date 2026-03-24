@@ -1,6 +1,6 @@
 ---
 name: threat-intel-monitor
-description: Monitors threat intelligence sources for vulnerabilities affecting the project's technology stack. Extracts tech stack from code, matches against recent CVEs and KEV catalog, checks vendor security advisories, and produces a threat briefing report with actionable intelligence.
+description: Monitors threat intelligence sources for vulnerabilities affecting the project's technology stack. Extracts tech stack from code, matches against recent CVEs and KEV catalog, checks vendor security advisories, and produces a threat briefing report with actionable intelligence. Use PROACTIVELY when project dependencies or infrastructure need matching against recent CVEs and threat advisories. NOT FOR: code style review, feature planning, documentation.
 tools: Read, Glob, Grep, WebSearch, WebFetch, Write
 model: sonnet
 color: red

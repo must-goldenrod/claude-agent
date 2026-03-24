@@ -1,8 +1,8 @@
 ---
 name: test-runner
-description: Executes test suites, parses results, categorizes failures, and generates coverage reports. Does not write tests -- only runs existing tests and reports results. Manages the test-fix-retest cycle reporting.
+description: Executes test suites, parses results, categorizes failures, and generates coverage reports. Does not write tests -- only runs existing tests and reports results. Manages the test-fix-retest cycle reporting. Use PROACTIVELY when test suites need execution with result parsing and coverage reporting. NOT FOR: writing tests, code implementation, security scanning.
 tools: Read, Write, Bash, Grep, Glob
-model: sonnet
+model: haiku
 color: green
 ---
 

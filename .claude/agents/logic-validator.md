@@ -1,6 +1,6 @@
 ---
 name: logic-validator
-description: Identifies logical flaws, reasoning errors, and inconsistencies across all prior team outputs. Validates that conclusions follow from premises and that recommendations align with findings.
+description: Identifies logical flaws, reasoning errors, and inconsistencies across all prior team outputs. Validates that conclusions follow from premises and that recommendations align with findings. Use PROACTIVELY when team outputs need validation for logical consistency and reasoning soundness. NOT FOR: fact verification, code implementation, security scanning.
 tools: Read, Write
 model: sonnet
 color: red

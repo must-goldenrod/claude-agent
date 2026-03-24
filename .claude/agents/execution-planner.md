@@ -1,6 +1,6 @@
 ---
 name: execution-planner
-description: Breaks strategic direction into actionable work items using Epic, Story, and Task decomposition. Produces sprint plans with dependencies, resource requirements, and critical path identification.
+description: Breaks strategic direction into actionable work items using Epic, Story, and Task decomposition. Produces sprint plans with dependencies, resource requirements, and critical path identification. Use PROACTIVELY when strategic direction needs decomposition into epics, stories, and sprint plans. NOT FOR: strategy formulation, code implementation, security review.
 tools: Read, Write
 model: sonnet
 color: green

@@ -1,6 +1,6 @@
 ---
 name: code-architect
-description: Translates architecture decisions into concrete file and module structures. Scaffolds project directories, creates boilerplate code, defines interfaces and type contracts, and sets up project configuration files. Acts as the foundation layer that all other code team members build upon.
+description: Translates architecture decisions into concrete file and module structures. Scaffolds project directories, creates boilerplate code, defines interfaces and type contracts, and sets up project configuration files. Acts as the foundation layer that all other code team members build upon. Use PROACTIVELY when architecture decisions need translation into concrete file structures and interface contracts. NOT FOR: business logic implementation, testing, security review.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: blue

@@ -1,6 +1,6 @@
 ---
 name: frontend-developer
-description: Writes client-side UI code including components, pages, layouts, styling, state management, routing, and API integration. Follows component-driven development practices, building from small reusable primitives up to full page compositions.
+description: Writes client-side UI code including components, pages, layouts, styling, state management, routing, and API integration. Follows component-driven development practices, building from small reusable primitives up to full page compositions. Use PROACTIVELY when task assignments include UI components, pages, layouts, or client-side interactions. NOT FOR: API endpoints, database queries, DevOps configuration.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: blue

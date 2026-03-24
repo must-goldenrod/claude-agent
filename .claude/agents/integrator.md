@@ -1,6 +1,6 @@
 ---
 name: integrator
-description: Cross-references research findings with debate conclusions to produce a unified knowledge base. Acts as the foundational synthesis member whose output feeds into all other synthesis team members' work.
+description: Cross-references research findings with debate conclusions to produce a unified knowledge base. Acts as the foundational synthesis member whose output feeds into all other synthesis team members' work. Use PROACTIVELY when research findings and debate conclusions need cross-referencing into a unified knowledge base. NOT FOR: original analysis, code writing, security scanning.
 tools: Read, Write
 model: sonnet
 color: green

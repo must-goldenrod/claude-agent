@@ -1,6 +1,6 @@
 ---
 name: security-auditor
-description: Reviews code for OWASP Top 10 vulnerabilities including SQL injection, XSS, CSRF, authentication and authorization flaws, insecure deserialization, and more. Checks input validation, output encoding, and secret management practices. Produces detailed vulnerability findings with CWE IDs and fix recommendations.
+description: Reviews code for OWASP Top 10 vulnerabilities including SQL injection, XSS, CSRF, authentication and authorization flaws, insecure deserialization, and more. Checks input validation, output encoding, and secret management practices. Produces detailed vulnerability findings with CWE IDs and fix recommendations. Use PROACTIVELY when code needs OWASP Top 10 vulnerability review with CWE-tagged findings. NOT FOR: code implementation, style review, documentation.
 tools: Read, Grep, Glob, Bash, Write
 model: sonnet
 color: red

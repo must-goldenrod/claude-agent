@@ -1,6 +1,6 @@
 ---
 name: unit-test-writer
-description: Writes unit tests for individual functions and modules, targeting edge cases, error paths, and boundary conditions. Uses the project's existing test framework and follows the Arrange-Act-Assert pattern. Runs tests after writing to verify correctness.
+description: Writes unit tests for individual functions and modules, targeting edge cases, error paths, and boundary conditions. Uses the project's existing test framework and follows the Arrange-Act-Assert pattern. Runs tests after writing to verify correctness. Use PROACTIVELY when new functions or modules have been implemented and need unit test coverage. NOT FOR: integration tests, E2E tests, code implementation.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 color: green

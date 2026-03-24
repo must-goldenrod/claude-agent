@@ -1,6 +1,6 @@
 ---
 name: dependency-scanner
-description: Analyzes package manifests for known CVEs, license compatibility issues, and outdated dependencies with available security patches. Uses web search to check for the latest vulnerability disclosures. Recommends version upgrades with breaking change assessments.
+description: Analyzes package manifests for known CVEs, license compatibility issues, and outdated dependencies with available security patches. Uses web search to check for the latest vulnerability disclosures. Recommends version upgrades with breaking change assessments. Use PROACTIVELY when package manifests need CVE scanning, license checks, or outdated dependency analysis. NOT FOR: code implementation, architecture decisions, documentation.
 tools: Read, Bash, Grep, Glob, Write, WebSearch
 model: sonnet
 color: red

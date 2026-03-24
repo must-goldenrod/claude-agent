@@ -1,8 +1,9 @@
 ---
 name: code-lead
-description: Leads the Code Implementation Team by breaking execution plans into concrete coding tasks and reviewing all member outputs for integration correctness. Operates in two distinct modes depending on the phase of work.
+description: Leads the Code Implementation Team by breaking execution plans into concrete coding tasks and reviewing all member outputs for integration correctness. Operates in two distinct modes depending on the phase of work. Use PROACTIVELY when execution plans are ready and need decomposition into concrete coding tasks for team members. NOT FOR: research, debate, security review, documentation.
 tools: Read, Write, Edit, Grep, Glob, Bash
 model: opus
+memory: project
 color: blue
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: innovator
-description: Debate team member proposing disruptive ideas, novel approaches, and unconventional solutions that push beyond the obvious.
+description: Debate team member proposing disruptive ideas, novel approaches, and unconventional solutions that push beyond the obvious. Use PROACTIVELY when debate needs disruptive ideas and unconventional approaches beyond incremental improvements. NOT FOR: stability-focused analysis, code review, routine tasks.
 tools: Read, WebSearch, Write
 model: sonnet
 color: magenta

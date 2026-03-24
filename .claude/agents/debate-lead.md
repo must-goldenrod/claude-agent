@@ -1,6 +1,6 @@
 ---
 name: debate-lead
-description: Leads the debate team by designing debate structure from research input and synthesizing final assessments from completed debates.
+description: Leads the debate team by designing debate structure from research input and synthesizing final assessments from completed debates. Use PROACTIVELY when research findings need structured multi-perspective evaluation before synthesis. NOT FOR: code implementation, security review, documentation.
 tools: Read, Write
 model: opus
 color: magenta

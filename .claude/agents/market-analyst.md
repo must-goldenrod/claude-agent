@@ -1,6 +1,6 @@
 ---
 name: market-analyst
-description: Analyzes market dynamics including sizing (TAM/SAM/SOM), growth rates, segmentation, revenue models, target demographics, and pricing strategies. Produces structured market intelligence with evidence-backed assessments.
+description: Analyzes market dynamics including sizing (TAM/SAM/SOM), growth rates, segmentation, revenue models, target demographics, and pricing strategies. Produces structured market intelligence with evidence-backed assessments. Use PROACTIVELY when business decisions need market sizing, competitive pricing, or demographic analysis. NOT FOR: technical implementation, code review, security audit.
 tools: Read, WebSearch, WebFetch, Write
 model: sonnet
 color: cyan

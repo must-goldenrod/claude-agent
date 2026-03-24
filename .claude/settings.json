@@ -2,18 +2,33 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": {
-          "tool": "Agent"
-        },
-        "command": "node .claude/hooks/pre-agent-timing.js"
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-security-gate.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-agent-timing.js"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": {
-          "tool": "Agent"
-        },
-        "command": "node .claude/hooks/track-agent-execution.js"
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/track-agent-execution.js"
+          }
+        ]
       }
     ]
   }

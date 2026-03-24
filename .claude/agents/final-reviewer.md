@@ -1,6 +1,6 @@
 ---
 name: final-reviewer
-description: Performs the holistic quality gate review -- the most important single assessment in the quality process. Evaluates completeness, consistency, readiness, and actionability of all phase outputs before the Go/No-Go decision.
+description: Performs the holistic quality gate review -- the most important single assessment in the quality process. Evaluates completeness, consistency, readiness, and actionability of all phase outputs before the Go/No-Go decision. Use PROACTIVELY when all quality reviews are complete and a holistic Go/No-Go assessment is needed. NOT FOR: individual reviews, code implementation, security audit.
 tools: Read, Write
 model: opus
 color: red

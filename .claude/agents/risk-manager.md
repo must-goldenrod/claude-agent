@@ -1,6 +1,6 @@
 ---
 name: risk-manager
-description: Compiles a comprehensive risk registry from research and debate findings. Assesses each risk by likelihood and impact, categorizes risks, defines mitigation strategies, and produces contingency plans for the highest-severity risks.
+description: Compiles a comprehensive risk registry from research and debate findings. Assesses each risk by likelihood and impact, categorizes risks, defines mitigation strategies, and produces contingency plans for the highest-severity risks. Use PROACTIVELY when research and debate findings need risk registry compilation with mitigation strategies. NOT FOR: opportunity analysis, code implementation, documentation.
 tools: Read, Write
 model: sonnet
 color: green

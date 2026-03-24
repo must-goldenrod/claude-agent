@@ -1,6 +1,6 @@
 ---
 name: infra-lead
-description: Leads the Infrastructure Team by analyzing architecture decisions and deployment requirements, planning infrastructure setup, assigning work to infrastructure members, and reviewing completed infrastructure code for security, cost, and scalability. Operates in two distinct modes depending on the phase of work.
+description: Leads the Infrastructure Team by analyzing architecture decisions and deployment requirements, planning infrastructure setup, assigning work to infrastructure members, and reviewing completed infrastructure code for security, cost, and scalability. Operates in two distinct modes depending on the phase of work. Use PROACTIVELY when architecture decisions require infrastructure planning for deployment and scaling. NOT FOR: application code, security review, documentation.
 tools: Read, Write, Grep, Glob, Bash
 model: opus
 color: yellow

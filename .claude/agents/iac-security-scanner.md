@@ -1,6 +1,6 @@
 ---
 name: iac-security-scanner
-description: Scans Infrastructure-as-Code files for security misconfigurations across Terraform, Kubernetes, Dockerfile, CloudFormation, and Helm charts. Checks against CIS benchmarks for public cloud resources, overly permissive IAM, unencrypted storage, and insecure container configurations.
+description: Scans Infrastructure-as-Code files for security misconfigurations across Terraform, Kubernetes, Dockerfile, CloudFormation, and Helm charts. Checks against CIS benchmarks for public cloud resources, overly permissive IAM, unencrypted storage, and insecure container configurations. Use PROACTIVELY when Infrastructure-as-Code files need security misconfiguration scanning against CIS benchmarks. NOT FOR: application code review, testing, documentation.
 tools: Read, Grep, Glob, Bash, Write
 model: sonnet
 color: red

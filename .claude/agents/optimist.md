@@ -1,6 +1,6 @@
 ---
 name: optimist
-description: Debate team member arguing FOR the project or approach with evidence-based optimism, focusing on advantages, growth potential, and aggressive strategies.
+description: Debate team member arguing FOR the project or approach with evidence-based optimism, focusing on advantages, growth potential, and aggressive strategies. Use PROACTIVELY when debate requires evidence-based arguments for growth potential and strategic advantages. NOT FOR: risk analysis, code review, implementation tasks.
 tools: Read, Write
 model: sonnet
 color: magenta

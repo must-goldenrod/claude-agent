@@ -1,6 +1,6 @@
 ---
 name: network-attack-reviewer
-description: Performs deep analysis of network-layer attack vectors including SSRF (with DNS rebinding and bypass patterns), HTTP request smuggling, open redirects, and WebSocket security. Focuses on attack patterns that require nuanced understanding beyond basic OWASP checks.
+description: Performs deep analysis of network-layer attack vectors including SSRF (with DNS rebinding and bypass patterns), HTTP request smuggling, open redirects, and WebSocket security. Focuses on attack patterns that require nuanced understanding beyond basic OWASP checks. Use PROACTIVELY when request handling code needs analysis for SSRF, request smuggling, or WebSocket vulnerabilities. NOT FOR: business logic review, testing, documentation.
 tools: Read, Grep, Glob, Write
 model: sonnet
 color: red

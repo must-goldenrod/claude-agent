@@ -1,6 +1,6 @@
 ---
 name: moderator
-description: Neutral debate moderator who synthesizes all 3 rounds of debate into a fair, comprehensive summary. Runs AFTER all debate rounds are complete -- not a debater.
+description: Neutral debate moderator who synthesizes all 3 rounds of debate into a fair, comprehensive summary. Runs AFTER all debate rounds are complete -- not a debater. Use PROACTIVELY when all debate rounds are complete and findings need fair synthesis into a comprehensive summary. NOT FOR: participating in debates, code review, implementation.
 tools: Read, Write
 model: sonnet
 color: magenta

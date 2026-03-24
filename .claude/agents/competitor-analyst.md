@@ -1,6 +1,6 @@
 ---
 name: competitor-analyst
-description: Analyzes the competitive landscape including feature comparisons, pricing models, market positioning, SWOT analysis, and competitive moat assessment. Produces actionable intelligence for differentiation strategy.
+description: Analyzes the competitive landscape including feature comparisons, pricing models, market positioning, SWOT analysis, and competitive moat assessment. Produces actionable intelligence for differentiation strategy. Use PROACTIVELY when differentiation strategy needs competitive landscape analysis or feature comparison. NOT FOR: internal code review, security audit, implementation.
 tools: Read, WebSearch, WebFetch, Write
 model: sonnet
 color: cyan

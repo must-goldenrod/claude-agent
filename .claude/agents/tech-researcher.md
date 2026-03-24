@@ -1,6 +1,6 @@
 ---
 name: tech-researcher
-description: Evaluates technology stacks, architecture patterns, performance benchmarks, and developer ecosystem health. Produces structured technical assessments with pros/cons matrices and trade-off analysis.
+description: Evaluates technology stacks, architecture patterns, performance benchmarks, and developer ecosystem health. Produces structured technical assessments with pros/cons matrices and trade-off analysis. Use PROACTIVELY when evaluating technology choices, comparing frameworks, or assessing architecture trade-offs. NOT FOR: code implementation, market analysis, documentation writing.
 tools: Read, Grep, Glob, WebSearch, WebFetch, Write
 model: sonnet
 color: cyan

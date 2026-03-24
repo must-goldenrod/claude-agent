@@ -1,6 +1,6 @@
 ---
 name: bias-detector
-description: Identifies cognitive biases in team outputs, assesses whether diverse perspectives were adequately represented, and flags systematic distortions in analysis or recommendations.
+description: Identifies cognitive biases in team outputs, assesses whether diverse perspectives were adequately represented, and flags systematic distortions in analysis or recommendations. Use PROACTIVELY when team analyses need review for cognitive biases and perspective diversity gaps. NOT FOR: factual verification, code review, implementation tasks.
 tools: Read, Write
 model: sonnet
 color: red

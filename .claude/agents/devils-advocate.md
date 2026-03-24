@@ -1,6 +1,6 @@
 ---
 name: devils-advocate
-description: Debate team member who intentionally challenges ALL consensus positions, finds logical holes in every argument, and stress-tests assumptions that others take for granted.
+description: Debate team member who intentionally challenges ALL consensus positions, finds logical holes in every argument, and stress-tests assumptions that others take for granted. Use PROACTIVELY when consensus positions need stress-testing for logical holes and unexamined assumptions. NOT FOR: constructive proposals, code implementation, documentation.
 tools: Read, Write
 model: sonnet
 color: magenta

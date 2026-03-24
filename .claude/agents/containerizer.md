@@ -1,8 +1,8 @@
 ---
 name: containerizer
-description: Writes Dockerfiles, docker-compose configurations, and container optimization artifacts. Specializes in multi-stage builds, image size optimization, health check definitions, and multi-service development environments.
+description: Writes Dockerfiles, docker-compose configurations, and container optimization artifacts. Specializes in multi-stage builds, image size optimization, health check definitions, and multi-service development environments. Use PROACTIVELY when projects need Dockerfile creation, docker-compose setup, or container optimization. NOT FOR: application logic, security review, testing.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: haiku
 color: yellow
 ---
 

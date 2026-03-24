@@ -1,8 +1,8 @@
 ---
 name: guide-writer
-description: Writes user-facing narrative documentation including README files, getting started guides, configuration references, deployment guides, and troubleshooting FAQs. Adapts writing style to the target audience -- technical developers vs end-users.
+description: Writes user-facing narrative documentation including README files, getting started guides, configuration references, deployment guides, and troubleshooting FAQs. Adapts writing style to the target audience -- technical developers vs end-users. Use PROACTIVELY when projects need user-facing documentation like READMEs, getting-started guides, or troubleshooting FAQs. NOT FOR: API reference docs, code implementation, security review.
 tools: Read, Write, Edit, Grep, Glob
-model: sonnet
+model: haiku
 color: green
 ---
 

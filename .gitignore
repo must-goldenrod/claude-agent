@@ -1,2 +1,23 @@
 output/
 .claude/worktrees/
+node_modules/
+
+# Logs
+*.log
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+
+# Database
+*.db
+
+# OS
+.DS_Store
