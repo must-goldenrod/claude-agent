@@ -24,23 +24,55 @@ Claude Code의 서브에이전트 시스템을 활용하여, 하나의 프롬프
 
 ## 빠른 시작
 
-### 이 프로젝트에서 사용
+### 전역 설치 (권장)
 
 ```bash
-# Claude Code 세션에서 오케스트레이터 실행
-/orchestrator "여행 예약 시스템의 결제 모듈 설계"
+git clone https://github.com/your-username/claude-agent.git
+cd claude-agent
+./install.sh
 ```
 
-### 다른 프로젝트에 에이전트 설치
+설치 완료 후 **어떤 프로젝트에서든** Claude Code에서 바로 사용:
 
 ```bash
-# 독립 사용 가능한 에이전트를 전역에 복사
-cp .claude/agents/{backend-developer,frontend-developer,security-auditor,data-modeler,api-doc-writer}.md ~/.claude/agents/
+# 멀티에이전트 파이프라인 실행
+/orchestrator "여행 예약 시스템의 결제 모듈 설계"
+
+# 개별 에이전트는 PROACTIVE 트리거로 자동 호출됨
+# (예: 코드 작성 → code-reviewer-impl 자동 실행)
+```
+
+### 설치 관리
+
+```bash
+./install.sh install    # 설치 (기존 에이전트 자동 백업)
+./install.sh verify     # 설치 상태 검증
+./install.sh uninstall  # 제거 (원래 에이전트 유지)
+```
+
+### Claude Code에 설치 위임
+
+Claude Code 세션에서 직접 시킬 수도 있습니다:
+
+```
+이 레포의 install.sh를 실행해서 전역에 에이전트를 설치해줘
+```
+
+### 부분 설치 (에이전트만)
+
+오케스트레이터 없이 개별 에이전트만 설치:
+
+```bash
+# 보안 에이전트만
+cp .claude/agents/{security-auditor,secrets-scanner,dependency-scanner}.md ~/.claude/agents/
+
+# 구현 에이전트만
+cp .claude/agents/{backend-developer,frontend-developer,code-architect}.md ~/.claude/agents/
 ```
 
 PROACTIVE 트리거가 적용되어 있어, 복사만 하면 Claude Code가 상황에 맞는 에이전트를 **자동으로 선택**합니다.
 
-> 전체 설치 옵션: [docs/global-installation-guide.md](docs/global-installation-guide.md)
+> 상세 설치 옵션: [docs/global-installation-guide.md](docs/global-installation-guide.md)
 
 ---
 
@@ -190,11 +222,33 @@ You are a specialized agent that [purpose].
 
 ---
 
+## 설치 시 알아둘 것
+
+### 무엇이 설치되는가
+
+| 항목 | 위치 | 수량 |
+|------|------|------|
+| 에이전트 정의 | `~/.claude/agents/*.md` | 69개 |
+| 출력 스키마 | `~/.claude/agents/schemas/` | 1개 |
+| 오케스트레이터 스킬 | `~/.claude/skills/orchestrator/` | 1개 |
+
+### 무엇이 설치되지 않는가
+
+**보안 훅**(`pre-security-gate.js` 등)은 프로젝트 로컬 전용이며 전역 설치에 포함되지 않습니다.
+프로젝트별로 보안 훅이 필요하면 `.claude/hooks/`를 대상 프로젝트에 수동 복사하세요.
+
+### 기존 에이전트와의 공존
+
+`~/.claude/agents/`에 이미 있는 에이전트(architect, planner, code-reviewer 등)는 그대로 유지됩니다. 같은 이름의 파일만 백업 후 덮어쓰기됩니다. `./install.sh uninstall`로 원복할 수 있습니다.
+
+---
+
 ## 관련 문서
 
 | 문서 | 내용 |
 |------|------|
+| **[docs/system-guide.md](docs/system-guide.md)** | **시스템 종합 가이드 — 전체 구조, 에이전트 역할, 파이프라인 흐름, 보안 훅** |
 | [catalog/taxonomy.md](catalog/taxonomy.md) | 카테고리별 에이전트 매핑 |
-| [docs/global-installation-guide.md](docs/global-installation-guide.md) | 전역 설치 + 사용법 |
+| [docs/global-installation-guide.md](docs/global-installation-guide.md) | 전역 설치 상세 옵션 |
 | [docs/plans/](docs/plans/) | 설계 문서 |
 | [docs/research/](docs/research/) | 서브에이전트 기술 연구 |
